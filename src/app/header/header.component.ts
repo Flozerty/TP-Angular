@@ -11,6 +11,6 @@ export class HeaderComponent {
   constructor() { }
 
   methode(ere: number) {
-    this.testMethode.emit(ere / 2)
+    this.testMethode.emit(ere)
   }
 }
