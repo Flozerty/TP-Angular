@@ -11,13 +11,13 @@ export class AppComponent {
   title = 'TP-Angular';
 
   num: number = 0;
-  selectedPlanetBodies: any = 'Sélectionnez une planète'
+  selectedPlanetBodies: any[] = []
 
   fonctionTest(x: number) {
     this.num = x;
   }
 
-  getPlanetBodies(bodies: any) {
+  getPlanetBodies(bodies: any[]) {
     this.selectedPlanetBodies = bodies;
   }
 

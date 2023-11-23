@@ -9,8 +9,8 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 })
 export class PlanetsComponent implements OnInit {
 
-  planets: any = [];
-  bodiesOfPlanet: any = []
+  planets: any[] = [];
+  bodiesOfPlanet: any[] = []
 
   @Output() getPlanetsByName = new EventEmitter<any>()
 
