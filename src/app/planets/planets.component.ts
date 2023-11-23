@@ -18,7 +18,7 @@ export class PlanetsComponent implements OnInit {
 
   ngOnInit() {
 
-    this.http.get<any>('https://api.le-systeme-solaire.net/rest/bodies/').subscribe((data: any) => {
+    this.http.get<any>('https://api.le-systeme-solaire.net/rest/bodies?exclude=,argPeriapsis,mainAnomaly,longAscNode,rel').subscribe((data: any) => {
       this.planets = data.bodies;
       console.log(this.planets);
     });
