@@ -11,7 +11,8 @@ export class AppComponent {
   title = 'TP-Angular';
 
   num: number = 0;
-  selectedPlanetBodies: any[] = []
+  selectedPlanetBodies: any[] = [];
+  selectedBody: any[] = [];
 
   fonctionTest(x: number) {
     this.num = x;
@@ -19,6 +20,10 @@ export class AppComponent {
 
   getPlanetBodies(bodies: any[]) {
     this.selectedPlanetBodies = bodies;
+  }
+
+  getBodyInfo(body: any[]) {
+    this.selectedBody = body;
   }
 
 }

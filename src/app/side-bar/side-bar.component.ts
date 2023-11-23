@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-side-bar',
@@ -8,9 +8,9 @@ import { Component, Input } from '@angular/core';
 export class SideBarComponent {
   constructor() { }
 
-
   @Input() selectedPlanetBodies: any | undefined = 'La Terre';
-
+  @Output() getBodyInfo = new EventEmitter<any>()
+  selectedBody: any[] = []
 
   getPlanetName(): string {
     if (this.selectedPlanetBodies && this.selectedPlanetBodies.length > 0) {
@@ -21,5 +21,9 @@ export class SideBarComponent {
     } else {
       return 'Aucune donnée';
     }
+  }
+  bodySelect(bodySelected: any[]) {
+    this.selectedBody = bodySelected;
+    this.getBodyInfo.emit(this.selectedBody);
   }
 }

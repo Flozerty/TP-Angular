@@ -24,7 +24,7 @@ export class PlanetsComponent implements OnInit {
     });
   }
 
-  planetName(planetName: any) {
+  planetName(planetName: string) {
     this.bodiesOfPlanet = [];
 
     for (const body of this.planets) {
@@ -35,8 +35,8 @@ export class PlanetsComponent implements OnInit {
         this.bodiesOfPlanet.push(body);
     }
 
-    console.log(this.bodiesOfPlanet)
     console.log(planetName)
+    console.log(this.bodiesOfPlanet)
     this.getPlanetsByName.emit(this.bodiesOfPlanet);
 
   }

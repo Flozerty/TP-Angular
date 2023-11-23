@@ -1,7 +1,7 @@
 <section>
     <p>Dernière liste à jour des satellites de : {{getPlanetName()}}</p>
     <ul>
-        <li *ngFor="let body of selectedPlanetBodies">{{body.name}}
+        <li *ngFor="let body of selectedPlanetBodies" (click)="bodySelect(body)">{{body.name}}
             <span *ngIf="body.alternativeName">( {{body.alternativeName}} )</span>
         </li>
     </ul>
