@@ -1,4 +1,5 @@
 <p>planets works!</p>
-<div *ngFor="let planet of planets?.bodies">
-    {{ planet.name }} ({{planet.aroundPlanet.planet}})
+
+<div *ngFor="let body of planets?.bodies">
+    {{ body.name }} ({{body.aroundPlanet.planet}})
 </div>

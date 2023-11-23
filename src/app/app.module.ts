@@ -12,7 +12,7 @@ import { SideBarComponent } from './side-bar/side-bar.component';
   declarations: [
     AppComponent,
     PlanetsComponent,
-    SideBarComponent
+    SideBarComponent,
   ],
   imports: [
     BrowserModule,
