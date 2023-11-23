@@ -1,5 +1,7 @@
 <section>
-    <p>Dernière liste à jour des satellites de : {{getPlanetName()}}</p>
+    <p>Dernière liste des satellites de : {{getPlanetName()}}</p>
+
+    <p> mise à jour le {{today | date:'dd/MM/YYYY'}} à {{today | date:'HH:mm:ss'}}</p>
     <ul>
         <li *ngFor="let body of selectedPlanetBodies" (click)="bodySelect(body)">{{body.name}}
             <span *ngIf="body.alternativeName">( {{body.alternativeName}} )</span>

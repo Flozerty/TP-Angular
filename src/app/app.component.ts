@@ -12,7 +12,7 @@ export class AppComponent {
 
   num: number = 0;
   selectedPlanetBodies: any[] = [];
-  selectedBody: any[] = [];
+  selectedBody: any[] | undefined = undefined;
 
   fonctionTest(x: number) {
     this.num = x;

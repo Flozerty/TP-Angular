@@ -11,15 +11,16 @@ export class SideBarComponent {
   @Input() selectedPlanetBodies: any | undefined = 'La Terre';
   @Output() getBodyInfo = new EventEmitter<any>()
   selectedBody: any[] = []
+  today = new Date()
 
   getPlanetName(): string {
     if (this.selectedPlanetBodies && this.selectedPlanetBodies.length > 0) {
 
       return this.selectedPlanetBodies[0].aroundPlanet ?
-        this.selectedPlanetBodies[0].aroundPlanet.planet.toUpperCase() : 'Aucune donnée';
+        this.selectedPlanetBodies[0].aroundPlanet.planet.toUpperCase() : '[Choisissez une planète]';
 
     } else {
-      return 'Aucune donnée';
+      return '[Choisissez une planète]';
     }
   }
   bodySelect(bodySelected: any[]) {

@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './selected-body-infos.component.scss'
 })
 export class SelectedBodyInfosComponent {
-  @Input() selectedBody: any[] = [];
+  @Input() selectedBody: any = [];
 }
