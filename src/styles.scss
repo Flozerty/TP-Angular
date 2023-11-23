@@ -1,14 +1,4 @@
-body {
+app-root {
     display: flex;
     flex-direction: row;
-}
-
-app-side-bar {
-    * {
-        border: solid black;
-        border-radius: 5px;
-    }
-
-    color: red;
-    width: 30%;
 }

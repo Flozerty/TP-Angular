@@ -1,3 +1,8 @@
-<app-side-bar />
-<main>Title etc.</main>
-<app-planets />
+<section id="sideBar">
+    <app-side-bar />
+</section>
+
+<main>
+    <app-header (testMethode)="fonctionTest($event)" />
+    <app-planets />
+</main>

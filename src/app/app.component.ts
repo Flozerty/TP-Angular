@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'TP-Angular';
+
+  fonctionTest(x: number) {
+    console.log(x);
+  }
+
+
 }
