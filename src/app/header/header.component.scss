@@ -5,6 +5,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
 
     #logo {
         color: blueviolet;
@@ -17,6 +18,6 @@ header {
         background: url(../../assets/logo.png);
         background-color: black;
         background-size: contain;
-        background-repeat: no-repeat
+        background-repeat: no-repeat;
     }
 }
