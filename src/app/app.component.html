@@ -1,8 +1,10 @@
 <section id="sideBar">
-    <app-side-bar />
+    <app-side-bar [selectedPlanetBodies]="selectedPlanetBodies" />
+
 </section>
 
 <main>
     <app-header (testMethode)="fonctionTest($event)" />
-    <app-planets />
+    <app-planets (getPlanetsByName)="getPlanetBodies($event)" />
+    <div> données du satellites</div>
 </main>

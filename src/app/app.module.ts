@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { PlanetsComponent } from './planets/planets.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { HeaderComponent } from './header/header.component';
+import { SelectedBodyInfosComponent } from './selected-body-infos/selected-body-infos.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { HeaderComponent } from './header/header.component';
     PlanetsComponent,
     SideBarComponent,
     HeaderComponent,
+    SelectedBodyInfosComponent,
   ],
   imports: [
     BrowserModule,

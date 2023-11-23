@@ -1,6 +1,6 @@
 <section id="buttons">
-    <div *ngFor="let planet of planets?.bodies">
-        <button *ngIf="planet.bodyType==='Planet'">
+    <div *ngFor="let planet of planets">
+        <button *ngIf="planet.bodyType==='Planet'" (click)="planetName(planet.name)">
             {{ planet.name }} ({{ planet?.moons?.length }})
         </button>
 

@@ -1,3 +1,6 @@
 <section>
-    <p>Dernière liste à jour des satellites :</p>
+    <p>Dernière liste à jour des satellites de : {{getPlanetName()}}</p>
+    <ul>
+        <li *ngFor="let body of selectedPlanetBodies">{{body.name}}</li>
+    </ul>
 </section>

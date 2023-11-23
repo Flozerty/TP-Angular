@@ -6,11 +6,19 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+  constructor() { }
+
   title = 'TP-Angular';
 
+  num: number = 0;
+  selectedPlanetBodies: any = 'Sélectionnez une planète'
+
   fonctionTest(x: number) {
-    console.log(x);
+    this.num = x;
   }
 
+  getPlanetBodies(bodies: any) {
+    this.selectedPlanetBodies = bodies;
+  }
 
 }
