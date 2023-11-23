@@ -1,5 +1,8 @@
-<p>planets works!</p>
+<section id="buttons">
+    <div *ngFor="let planet of planets?.bodies">
+        <button *ngIf="planet.bodyType==='Planet'">
+            {{ planet.name }} ({{ planet?.moons?.length }})
+        </button>
 
-<div *ngFor="let body of planets?.bodies">
-    {{ body.name }} ({{body.aroundPlanet.planet}})
-</div>
+    </div>
+</section>
