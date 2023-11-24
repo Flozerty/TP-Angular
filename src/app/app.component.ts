@@ -10,13 +10,13 @@ export class AppComponent {
 
   title = 'TP-Angular';
 
-  num: number = 0;
   today: Date = new Date();
   selectedPlanetBodies: any[] = [];
   selectedBody: any[] | undefined = undefined;
 
-  fonctionTest(x: number) {
-    this.num = x;
+  fonctionReset() {
+    this.selectedBody = undefined;
+    this.selectedPlanetBodies = [];
     this.generateNewDate();
   }
 

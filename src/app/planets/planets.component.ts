@@ -11,6 +11,7 @@ export class PlanetsComponent implements OnInit {
 
   planets: any[] = [];
   bodiesOfPlanet: any[] = []
+  selectedPlanet: string = ''
 
   @Output() getPlanetsByName = new EventEmitter<any>()
 
@@ -20,12 +21,12 @@ export class PlanetsComponent implements OnInit {
 
     this.http.get<any>('https://api.le-systeme-solaire.net/rest/bodies?exclude=,argPeriapsis,mainAnomaly,longAscNode,rel').subscribe((data: any) => {
       this.planets = data.bodies;
-      console.log(this.planets);
     });
   }
 
   planetName(planetName: string) {
     this.bodiesOfPlanet = [];
+    this.selectedPlanet = planetName;
 
     for (const body of this.planets) {
       if (body.aroundPlanet?.planet.toLowerCase() === planetName.toLowerCase()) {
@@ -36,7 +37,6 @@ export class PlanetsComponent implements OnInit {
     }
 
     console.log(planetName)
-    console.log(this.bodiesOfPlanet)
     this.getPlanetsByName.emit(this.bodiesOfPlanet);
 
   }

@@ -7,10 +7,10 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class HeaderComponent {
 
-  @Output() testMethode = new EventEmitter<number>()
+  @Output() resetMethod = new EventEmitter<number>()
   constructor() { }
 
-  methode(ere: number) {
-    this.testMethode.emit(ere)
+  reset() {
+    this.resetMethod.emit()
   }
 }

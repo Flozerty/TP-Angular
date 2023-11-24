@@ -1,6 +1,7 @@
 <section id="buttons">
     <div *ngFor="let planet of planets">
-        <button *ngIf="planet.bodyType==='Planet'" (click)="planetName(planet.name)">
+        <button *ngIf="planet.bodyType==='Planet'" (click)="planetName(planet.name)"
+            [ngClass]="{'active': selectedPlanet===planet.name, 'disabled': !(selectedPlanet===planet.name)}">
             {{ planet.name }} ({{ planet?.moons?.length }})
         </button>
 

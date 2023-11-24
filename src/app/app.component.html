@@ -4,7 +4,7 @@
 </section>
 
 <main>
-    <app-header (testMethode)="fonctionTest($event)" />
+    <app-header (resetMethod)="fonctionReset()" />
     <app-planets (getPlanetsByName)="getPlanetBodies($event)" />
     <app-selected-body-infos [selectedBody]="selectedBody" />
 </main>
