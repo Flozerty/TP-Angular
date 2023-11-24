@@ -12,8 +12,10 @@ export class AppComponent {
 
   today: Date = new Date();
   selectedPlanetBodies: any[] = [];
-  selectedPlanet: string = '[Choisissez une planète]'
+  selectedPlanet: string = '[Choisissez une planète]';
   selectedBody: any[] | undefined = undefined;
+  selectedBodiesFiltered: any = [];
+
 
   fonctionReset() {
     this.selectedBody = undefined;
@@ -40,6 +42,16 @@ export class AppComponent {
     this.today = new Date;
   }
   updateList(searchName: string) {
-    this.selectedPlanet = searchName
+
+    this.selectedPlanet = searchName;
+    this.selectedBodiesFiltered = [];
+
+    for (let body of this.selectedPlanetBodies) {
+      console.log(body)
+      if (body.id.includes(searchName.toLowerCase()) || body.name.toLowerCase().includes(searchName.toLowerCase())) {
+        this.selectedBodiesFiltered.push(body);
+      }
+    }
+    console.log(this.selectedBodiesFiltered)
   }
 }
