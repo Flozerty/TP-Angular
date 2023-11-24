@@ -9,6 +9,7 @@ import { PlanetsComponent } from './planets/planets.component';
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { HeaderComponent } from './header/header.component';
 import { SelectedBodyInfosComponent } from './selected-body-infos/selected-body-infos.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { SelectedBodyInfosComponent } from './selected-body-infos/selected-body-
     SideBarComponent,
     HeaderComponent,
     SelectedBodyInfosComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,

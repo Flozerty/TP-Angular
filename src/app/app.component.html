@@ -6,6 +6,7 @@
 
 <main>
     <app-header (resetMethod)="fonctionReset()" />
+    <app-search />
     <app-planets (getPlanetsByName)="getPlanetBodies($event)" (getPlanetName)="usePlanetName($event)" />
     <app-selected-body-infos [selectedBody]="selectedBody" />
 </main>

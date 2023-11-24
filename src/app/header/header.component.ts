@@ -13,4 +13,5 @@ export class HeaderComponent {
   reset() {
     this.resetMethod.emit()
   }
+
 }
