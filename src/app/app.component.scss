@@ -1,15 +1,9 @@
 #sideBar {
     width: 30%;
+    min-height: 800px;
 }
 
 main {
     width: 70%;
-
-
-
-    app-planets {
-        width: 70%;
-        color: blue;
-    }
-
+    cursor: url(../assets/lune.png) 25 25, pointer;
 }

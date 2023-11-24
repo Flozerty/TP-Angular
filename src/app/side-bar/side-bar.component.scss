@@ -5,10 +5,12 @@ section {
     color: red;
     background: url(../../assets/stars.jpg);
     background-size: 350px;
+    cursor: pointer;
 
     ul {
         li {
             &:hover {
+                cursor: help;
                 text-decoration: underline;
             }
         }
