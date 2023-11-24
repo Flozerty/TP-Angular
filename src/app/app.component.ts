@@ -18,6 +18,7 @@ export class AppComponent {
   fonctionReset() {
     this.selectedBody = undefined;
     this.selectedPlanetBodies = [];
+    this.selectedPlanet = "[Choisissez une planète]"
     this.generateNewDate();
   }
 
