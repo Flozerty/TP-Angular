@@ -45,15 +45,15 @@ export class AppComponent {
   }
   updateList(searchName: string) {
 
+    console.log(searchName)
     this.selectedPlanet = searchName;
     this.selectedBodiesFiltered = [];
 
     for (let body of this.selectedPlanetBodies) {
 
-      if (body.id.includes(searchName.toLowerCase()) || body.name.toLowerCase().includes(searchName.toLowerCase())) {
+      if (body.id.includes(searchName.toLowerCase()) || body.name.toLowerCase().includes(searchName.toLowerCase()) || body.alternativeName.includes(searchName.toLowerCase())) {
         this.selectedBodiesFiltered.push(body);
       }
     }
-    this.selectedPlanetBodies = this.selectedBodiesFiltered;
   }
 }
