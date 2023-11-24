@@ -38,6 +38,7 @@ export class PlanetsComponent implements OnInit {
         this.bodiesOfPlanet.push(body);
     }
 
+    console.log(this.bodiesOfPlanet)
     console.log(planetName)
     this.getPlanetsByName.emit(this.bodiesOfPlanet);
     this.getPlanetName.emit(this.selectedPlanet);
