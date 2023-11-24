@@ -14,17 +14,6 @@ export class SideBarComponent {
   selectedBody: any[] = []
   @Input() today: Date = new Date();
 
-  getPlanetName(): string {
-    if (this.selectedPlanetBodies && this.selectedPlanetBodies.length > 0) {
-
-      return this.selectedPlanetBodies[0].aroundPlanet ?
-        this.selectedPlanetBodies[0].aroundPlanet.planet.toUpperCase() : '[Choisissez une planète]';
-
-    } else {
-      return '[Choisissez une planète]';
-    }
-  }
-
   bodySelect(bodySelected: any[]) {
     this.selectedBody = bodySelected;
     this.getBodyInfo.emit(this.selectedBody);

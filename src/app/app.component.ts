@@ -41,11 +41,11 @@ export class AppComponent {
   }
 
   generateNewDate() {
-    this.today = new Date;
+    this.today = new Date();
   }
+
   updateList(searchName: string) {
 
-    console.log(searchName)
     this.selectedPlanet = searchName;
     this.selectedBodiesFiltered = [];
 

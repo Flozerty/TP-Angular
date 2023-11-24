@@ -5,7 +5,7 @@
     <ul>
         <li *ngFor="let body of selectedPlanetBodies" (click)="bodySelect(body)">
             {{body.name}}
-            <span *ngIf="body.alternativeName">( {{body.alternativeName}} )</span>
+            <span *ngIf="body.alternativeName"> - ( {{body.alternativeName}} )</span>
         </li>
     </ul>
 </section>

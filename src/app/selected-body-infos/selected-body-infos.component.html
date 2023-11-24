@@ -1,15 +1,21 @@
 <section>
     <article *ngIf="selectedBody">
+
         <div id="nameDiv">
             <p>Nom : {{selectedBody.name}}</p>
             <p>Nom Anglais : {{selectedBody.englishName}}</p>
             <p *ngIf="selectedBody.alternativeName">Nom Alternatif : {{selectedBody.alternativeName}}</p>
+            <p>Id : {{selectedBody.id}}</p>
         </div>
-        <p *ngIf="selectedBody.discoveryDate">Découverte le {{selectedBody.discoveryDate}} par
-            {{selectedBody.discoveredBy}}</p>
+
+        <p *ngIf="selectedBody.discoveryDate">
+            Découverte le {{selectedBody.discoveryDate}} par {{selectedBody.discoveredBy}}
+        </p>
+
         <div id="code">
-            <p>code source :</p>
+            <p>extrait du code source :</p>
             <p>{{selectedBody | json}}</p>
         </div>
+
     </article>
 </section>

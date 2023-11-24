@@ -2,18 +2,25 @@ section {
 
     margin: 20px;
     text-align: center;
-    min-height: 300px;
+    min-height: 350px;
     background-color: wheat;
 
     article {
+        width: 100%;
+        height: 100%;
         display: flex;
-        justify-content: space-between;
         flex-direction: column;
+        justify-content: space-between;
     }
 
     #nameDiv {
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-around;
         color: blue;
+
+        p {
+            margin: 10px;
+        }
     }
 }
