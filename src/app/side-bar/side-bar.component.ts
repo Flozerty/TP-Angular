@@ -11,7 +11,7 @@ export class SideBarComponent {
   @Input() selectedPlanetBodies: any | undefined = 'La Terre';
   @Output() getBodyInfo = new EventEmitter<any>()
   selectedBody: any[] = []
-  today = new Date()
+  @Input() today: Date = new Date();
 
   getPlanetName(): string {
     if (this.selectedPlanetBodies && this.selectedPlanetBodies.length > 0) {

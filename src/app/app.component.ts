@@ -11,19 +11,26 @@ export class AppComponent {
   title = 'TP-Angular';
 
   num: number = 0;
+  today: Date = new Date();
   selectedPlanetBodies: any[] = [];
   selectedBody: any[] | undefined = undefined;
 
   fonctionTest(x: number) {
     this.num = x;
+    this.generateNewDate();
   }
 
   getPlanetBodies(bodies: any[]) {
     this.selectedPlanetBodies = bodies;
+    this.generateNewDate();
   }
 
   getBodyInfo(body: any[]) {
     this.selectedBody = body;
+    this.generateNewDate();
   }
 
+  generateNewDate() {
+    this.today = new Date;
+  }
 }
