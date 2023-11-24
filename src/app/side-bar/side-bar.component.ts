@@ -8,7 +8,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class SideBarComponent {
   constructor() { }
 
-  @Input() selectedPlanetBodies: any | undefined = 'La Terre';
+  @Input() selectedPlanet: string = '';
+  @Input() selectedPlanetBodies: any | undefined = '';
   @Output() getBodyInfo = new EventEmitter<any>()
   selectedBody: any[] = []
   @Input() today: Date = new Date();
@@ -23,6 +24,7 @@ export class SideBarComponent {
       return '[Choisissez une planète]';
     }
   }
+
   bodySelect(bodySelected: any[]) {
     this.selectedBody = bodySelected;
     this.getBodyInfo.emit(this.selectedBody);

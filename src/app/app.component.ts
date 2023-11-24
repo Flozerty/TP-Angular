@@ -12,6 +12,7 @@ export class AppComponent {
 
   today: Date = new Date();
   selectedPlanetBodies: any[] = [];
+  selectedPlanet: string = '[Choisissez une planète]'
   selectedBody: any[] | undefined = undefined;
 
   fonctionReset() {
@@ -23,6 +24,10 @@ export class AppComponent {
   getPlanetBodies(bodies: any[]) {
     this.selectedPlanetBodies = bodies;
     this.generateNewDate();
+  }
+
+  usePlanetName(name: string) {
+    this.selectedPlanet = name;
   }
 
   getBodyInfo(body: any[]) {

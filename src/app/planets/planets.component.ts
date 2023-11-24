@@ -14,6 +14,8 @@ export class PlanetsComponent implements OnInit {
   selectedPlanet: string = ''
 
   @Output() getPlanetsByName = new EventEmitter<any>()
+  @Output() getPlanetName = new EventEmitter<string>()
+
 
   constructor(private http: HttpClient) { }
 
@@ -38,6 +40,7 @@ export class PlanetsComponent implements OnInit {
 
     console.log(planetName)
     this.getPlanetsByName.emit(this.bodiesOfPlanet);
+    this.getPlanetName.emit(this.selectedPlanet);
 
   }
 

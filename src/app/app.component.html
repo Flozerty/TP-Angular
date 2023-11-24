@@ -1,10 +1,11 @@
 <section id="sideBar">
-    <app-side-bar [selectedPlanetBodies]="selectedPlanetBodies" [today]="today" (getBodyInfo)="getBodyInfo($event)" />
+    <app-side-bar [selectedPlanet]="selectedPlanet" [selectedPlanetBodies]="selectedPlanetBodies" [today]="today"
+        (getBodyInfo)="getBodyInfo($event)" />
 
 </section>
 
 <main>
     <app-header (resetMethod)="fonctionReset()" />
-    <app-planets (getPlanetsByName)="getPlanetBodies($event)" />
+    <app-planets (getPlanetsByName)="getPlanetBodies($event)" (getPlanetName)="usePlanetName($event)" />
     <app-selected-body-infos [selectedBody]="selectedBody" />
 </main>
