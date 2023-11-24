@@ -10,12 +10,10 @@ export class SideBarComponent {
 
   @Input() selectedPlanet: string = '';
   @Input() selectedPlanetBodies: any | undefined = '';
-  @Output() getBodyInfo = new EventEmitter<any>()
-  selectedBody: any[] = []
+  @Output() getBodyInfo = new EventEmitter<any>();
   @Input() today: Date = new Date();
 
   bodySelect(bodySelected: any[]) {
-    this.selectedBody = bodySelected;
-    this.getBodyInfo.emit(this.selectedBody);
+    this.getBodyInfo.emit(bodySelected);
   }
 }

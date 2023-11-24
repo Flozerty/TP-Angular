@@ -13,7 +13,7 @@ export class PlanetsComponent implements OnInit {
   bodiesOfPlanet: any[] = []
   selectedPlanet: string = ''
 
-  @Output() getPlanetsByName = new EventEmitter<any>()
+  @Output() getPlanetsByName = new EventEmitter<any[]>()
   @Output() getPlanetName = new EventEmitter<string>()
 
 
