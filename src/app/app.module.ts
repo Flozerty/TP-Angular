@@ -10,7 +10,7 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { HeaderComponent } from './header/header.component';
 import { SelectedBodyInfosComponent } from './selected-body-infos/selected-body-infos.component';
 import { SearchComponent } from './search/search.component';
-
+import { FormsModule } from '@angular/forms'
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +24,7 @@ import { SearchComponent } from './search/search.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

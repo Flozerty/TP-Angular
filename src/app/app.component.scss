@@ -9,6 +9,14 @@
 
     main {
         width: 70%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         cursor: url(../assets/lune.png) 25 25, pointer;
+
+        app-header,
+        app-selected-body-infos {
+            width: 100%;
+        }
     }
 }

@@ -39,4 +39,7 @@ export class AppComponent {
   generateNewDate() {
     this.today = new Date;
   }
+  updateList(searchName: string) {
+    this.selectedPlanet = searchName
+  }
 }
