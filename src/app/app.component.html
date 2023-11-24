@@ -1,12 +1,14 @@
-<section id="sideBar">
-    <app-side-bar [selectedPlanet]="selectedPlanet" [selectedPlanetBodies]="selectedPlanetBodies" [today]="today"
-        (getBodyInfo)="getBodyInfo($event)" />
+<div id="main-content">
+    <section id="sideBar">
+        <app-side-bar [selectedPlanet]="selectedPlanet" [selectedPlanetBodies]="selectedPlanetBodies" [today]="today"
+            (getBodyInfo)="getBodyInfo($event)" />
 
-</section>
+    </section>
 
-<main>
-    <app-header (resetMethod)="fonctionReset()" />
-    <app-search />
-    <app-planets (getPlanetsByName)="getPlanetBodies($event)" (getPlanetName)="usePlanetName($event)" />
-    <app-selected-body-infos [selectedBody]="selectedBody" />
-</main>
+    <main>
+        <app-header (resetMethod)="fonctionReset()" />
+        <app-search />
+        <app-planets (getPlanetsByName)="getPlanetBodies($event)" (getPlanetName)="usePlanetName($event)" />
+        <app-selected-body-infos [selectedBody]="selectedBody" />
+    </main>
+</div>

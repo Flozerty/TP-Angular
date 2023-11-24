@@ -1,9 +1,14 @@
-#sideBar {
-    width: 30%;
-    min-height: 800px;
-}
+#main-content {
+    display: flex;
+    flex-direction: row;
 
-main {
-    width: 70%;
-    cursor: url(../assets/lune.png) 25 25, pointer;
+    #sideBar {
+        width: 30%;
+        min-height: 800px;
+    }
+
+    main {
+        width: 70%;
+        cursor: url(../assets/lune.png) 25 25, pointer;
+    }
 }
