@@ -1,6 +1,6 @@
 <div id="main-content">
     <section id="sideBar">
-        <app-side-bar [selectedPlanet]="selectedPlanet" [selectedPlanetBodies]="selectedPlanetBodies" [today]="today"
+        <app-side-bar [selectedPlanet]="selectedPlanet" [selectedPlanetBodies]="selectedBodiesFiltered" [today]="today"
             (getBodyInfo)="getBodyInfo($event)" />
 
     </section>

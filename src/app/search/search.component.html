@@ -1,7 +1,5 @@
 <form #formSearch="ngForm" (ngSubmit)="onSubmit(formSearch)">
     <input name="word" [(ngModel)]="word" required type="search" placeholder="Search" aria-label="Search"
         (ngModelChange)="onSearchChange()" />
-    <button type="submit">
-        Search
-    </button>
+
 </form>

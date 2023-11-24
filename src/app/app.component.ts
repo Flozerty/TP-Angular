@@ -19,13 +19,15 @@ export class AppComponent {
 
   fonctionReset() {
     this.selectedBody = undefined;
+    this.selectedBodiesFiltered = [];
     this.selectedPlanetBodies = [];
-    this.selectedPlanet = "[Choisissez une planète]"
+    this.selectedPlanet = "[Choisissez une planète]";
     this.generateNewDate();
   }
 
   getPlanetBodies(bodies: any[]) {
     this.selectedPlanetBodies = bodies;
+    this.selectedBodiesFiltered = bodies;
     this.generateNewDate();
   }
 
@@ -47,11 +49,11 @@ export class AppComponent {
     this.selectedBodiesFiltered = [];
 
     for (let body of this.selectedPlanetBodies) {
-      console.log(body)
+
       if (body.id.includes(searchName.toLowerCase()) || body.name.toLowerCase().includes(searchName.toLowerCase())) {
         this.selectedBodiesFiltered.push(body);
       }
     }
-    console.log(this.selectedBodiesFiltered)
+    this.selectedPlanetBodies = this.selectedBodiesFiltered;
   }
 }
