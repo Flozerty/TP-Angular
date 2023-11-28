@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { BodiesService } from '../bodies.service';
 
 
 @Component({
@@ -17,11 +18,11 @@ export class PlanetsComponent implements OnInit {
   @Output() getPlanetName = new EventEmitter<string>()
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private bodiesService: BodiesService) { }
 
   ngOnInit() {
 
-    this.http.get<any>('https://api.le-systeme-solaire.net/rest/bodies?exclude=,argPeriapsis,mainAnomaly,longAscNode,rel,avgTemp,vol').subscribe((data: any) => {
+    this.bodiesService.getData().subscribe((data: any) => {
       this.planets = data.bodies;
     });
   }
