@@ -11,8 +11,9 @@ import { BodiesService } from '../bodies.service';
 export class PlanetsComponent implements OnInit {
 
   planets: any[] = [];
-  bodiesOfPlanet: any[] = []
-  selectedPlanet: string = ''
+  bodiesOfPlanet: any[] = [];
+  selectedPlanet: string = '';
+  bodiesTypes: string[] = [];
 
   @Output() getPlanetsByName = new EventEmitter<any[]>()
   @Output() getPlanetName = new EventEmitter<string>()
@@ -25,6 +26,12 @@ export class PlanetsComponent implements OnInit {
     this.bodiesService.getData().subscribe((data: any) => {
       this.planets = data.bodies;
     });
+
+    this.bodiesService.getAllBodyTypes().subscribe((types: string[]) => {
+      this.bodiesTypes = types;
+      console.log(this.bodiesTypes)
+    })
+
   }
 
   planetName(planetName: string) {
@@ -38,6 +45,7 @@ export class PlanetsComponent implements OnInit {
       if (body.aroundPlanet?.planet === "terre" && planetName.toLowerCase() === "la terre")
         this.bodiesOfPlanet.push(body);
     }
+
 
     this.getPlanetsByName.emit(this.bodiesOfPlanet);
     this.getPlanetName.emit(this.selectedPlanet);
