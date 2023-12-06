@@ -11,12 +11,13 @@ export class BodySelectionComponent implements OnInit {
 
   planets: any[] = [];
   bodiesOfPlanet: any[] = [];
-  selectedPlanet: string = '';
   bodiesTypes: string[] = [];
-  AllBodies: any[] = []
+  selectedType: string = ''
+  AllBodies: any[] = [];
 
   @Output() getPlanetsByName = new EventEmitter<any[]>()
   @Output() getPlanetName = new EventEmitter<string>()
+  @Input() selectedPlanet: string = ''
 
   constructor(private bodiesService: BodiesService,) { }
 
@@ -24,7 +25,6 @@ export class BodySelectionComponent implements OnInit {
 
     this.bodiesService.getData().subscribe(data => {
       this.AllBodies = data.bodies
-      console.log(this.AllBodies)
     });
 
     this.bodiesService.getAllBodyTypes().subscribe((types: string[]) => {
@@ -36,8 +36,9 @@ export class BodySelectionComponent implements OnInit {
   planetName(planetName: string) {
     this.bodiesOfPlanet = [];
     this.selectedPlanet = planetName;
+    console.log(this.selectedPlanet)
 
-    for (const body of this.planets) {
+    for (const body of this.AllBodies) {
       if (body.aroundPlanet?.planet.toLowerCase() === planetName.toLowerCase()) {
         this.bodiesOfPlanet.push(body);
       }
@@ -47,6 +48,10 @@ export class BodySelectionComponent implements OnInit {
 
     this.getPlanetsByName.emit(this.bodiesOfPlanet);
     this.getPlanetName.emit(this.selectedPlanet);
+  }
+
+  selectType(type: string) {
+    this.selectedType = type;
   }
 
 
