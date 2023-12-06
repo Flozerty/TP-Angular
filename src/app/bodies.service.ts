@@ -9,7 +9,7 @@ export class BodiesService {
 
   constructor(private http: HttpClient) { }
 
-  getData() {
+  getData(): Observable<any> {
     return this.http.get<any>('https://api.le-systeme-solaire.net/rest/bodies?exclude=,argPeriapsis,mainAnomaly,longAscNode,rel,avgTemp,vol');
   }
 
@@ -19,7 +19,7 @@ export class BodiesService {
 
   getAllBodyTypes(): Observable<string[]> {
     return this.getData().pipe(
-      map(data => {
+      map((data): any => {
         const bodiesTypes = new Set<string>();
         for (const body of data.bodies) {
           bodiesTypes.add(body.bodyType);
