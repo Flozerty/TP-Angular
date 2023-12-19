@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { BodiesService } from '../../services/bodies.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-body-selection',
@@ -10,9 +11,8 @@ export class BodySelectionComponent implements OnInit {
 
   bodiesOfPlanet: any[] = [];
   bodiesTypes: string[] = [];
-  allBodies: any[] = [];
 
-  selectedType = this.bodiesService.selectedType;
+  selectedType: string = '';
 
   bodiesBySelectedType: any[] | undefined = this.bodiesService.getBodiesBySelectedType();
 
@@ -26,17 +26,17 @@ export class BodySelectionComponent implements OnInit {
   constructor(private bodiesService: BodiesService,) { }
 
   ngOnInit() {
-
-
-
     this.bodiesService.getData().subscribe(data => {
-      this.allBodies = data.bodies;
       this.bodiesService.data = data.bodies;
     });
 
     this.bodiesService.getAllBodyTypes().subscribe((types: string[]) => {
       this.bodiesTypes = types;
-      console.log(this.bodiesTypes)
+    })
+
+    this.bodiesService.selectedType$.subscribe(type => {
+      this.selectedType = type;
+      this.bodiesBySelectedType = this.bodiesService.getBodiesBySelectedType()
     })
   }
 
@@ -45,7 +45,7 @@ export class BodySelectionComponent implements OnInit {
     this.selectedPlanet = planetName;
     console.log(this.selectedPlanet)
 
-    for (const body of this.allBodies) {
+    for (const body of this.bodiesService.data) {
       if (body.aroundPlanet?.planet.toLowerCase() === planetName.toLowerCase() || body.aroundPlanet?.planet.toLowerCase() === planetName.toLowerCase()) {
         this.bodiesOfPlanet.push(body);
       }
@@ -58,11 +58,10 @@ export class BodySelectionComponent implements OnInit {
   }
 
   selectAType(type: string) {
-    this.bodiesService.selectedType = type;
+    this.bodiesService.updateSelectedType(type);
     this.bodiesBySelectedType = this.bodiesService.getBodiesBySelectedType()
 
     this.getType.emit(this.bodiesService.selectedType)
   }
-
 
 }

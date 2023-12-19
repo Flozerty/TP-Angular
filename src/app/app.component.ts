@@ -15,7 +15,7 @@ export class AppComponent {
   selectedPlanet: string = '[Choisissez une planète]';
   selectedBody: any[] | undefined = undefined;
   selectedBodiesFiltered: any = [];
-  selectedType: string = this.bodiesServices.selectedType
+  selectedType: string = this.bodiesServices.selectedTypeSubject.value
 
 
   fonctionReset() {

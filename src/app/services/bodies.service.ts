@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { BehaviorSubject, Observable, Subscriber, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +11,15 @@ export class BodiesService {
 
   public selectedType: string = 'aucun type';
   public data: any[] = [];
+
+  public selectedTypeSubject = new BehaviorSubject<string>('');
+  selectedType$: Observable<string> = this.selectedTypeSubject.asObservable();
+
+  updateSelectedType(type: string) {
+    this.selectedTypeSubject.next(type)
+    this.selectedType = type;
+  }
+
 
   getData(): Observable<any> {
     return this.http.get<any>('https://api.le-systeme-solaire.net/rest/bodies?exclude=,argPeriapsis,mainAnomaly,longAscNode,rel,avgTemp,vol');
@@ -34,7 +43,7 @@ export class BodiesService {
   }
 
   getBodiesBySelectedType() {
-    let bodiesSelected: any[] = this.data.filter(body => body.bodyType === this.selectedType);
+    let bodiesSelected: any[] = this.data.filter(body => body.bodyType === this.selectedTypeSubject.value);
     return bodiesSelected;
   }
 }
