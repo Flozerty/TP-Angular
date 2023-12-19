@@ -15,6 +15,12 @@ export class BodiesService {
   public selectedTypeSubject = new BehaviorSubject<string>('');
   selectedType$: Observable<string> = this.selectedTypeSubject.asObservable();
 
+  public selectedPlanetAroundSubject = new BehaviorSubject<string>('');
+  selectedPlanetAround$: Observable<string> = this.selectedTypeSubject.asObservable();
+
+  public selectedBodySubject = new BehaviorSubject<string>('');
+  selectedBody$: Observable<string> = this.selectedTypeSubject.asObservable();
+
   updateSelectedType(type: string) {
     this.selectedTypeSubject.next(type)
     this.selectedType = type;
