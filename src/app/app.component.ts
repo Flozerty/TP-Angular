@@ -58,9 +58,9 @@ export class AppComponent {
     this.selectedPlanet = searchName;
     this.selectedBodiesFiltered = [];
 
-    for (let body of this.selectedPlanetBodies) {
+    for (let body of this.bodiesServices.data) {
 
-      if (body.id.includes(searchName.toLowerCase()) || body.name.toLowerCase().includes(searchName.toLowerCase()) || body.alternativeName.includes(searchName.toLowerCase())) {
+      if (body.id.includes(searchName.toLowerCase()) || body.name.toLowerCase().includes(searchName.toLowerCase()) || body.alternativeName.includes(searchName.toLowerCase()) || body.englishName.toLowerCase().includes(searchName.toLowerCase())) {
         this.selectedBodiesFiltered.push(body);
       }
     }

@@ -6,7 +6,8 @@
         </button>
     </div>
 </section>
-<section id="bodiesOfSelectedType">
+
+<section id="bodiesOfSelectedType" *ngIf="bodiesBySelectedType?.length != 0">
     <div *ngFor="let body of bodiesBySelectedType" class="buttonsList">
         <button (click)="planetName(body.id)"
             [ngClass]="{'active': selectedPlanet===body.id, 'disabled': !(selectedPlanet===body.id)}">

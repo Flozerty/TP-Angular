@@ -5,9 +5,18 @@
     justify-content: center;
 
     button {
-        margin: 10px;
         border-radius: 8px;
         height: 30px;
+    }
+
+    .disabled {
+        background-color: black;
+        color: white;
+        border: black;
+    }
+
+    .active {
+        font-weight: bold;
     }
 }
 
@@ -22,25 +31,28 @@
     box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     border: 1px solid #ddd;
-    background-color: antiquewhite;
+    background-color: grey;
 
-    .buttonsList {
-        margin: 10px;
 
-        button {
-            width: 20vh;
-            height: 100%;
-            padding: 0;
-        }
+
+
+    .disabled {
+        background-color: black;
+        color: white;
+        border: black;
+    }
+
+    .active {
+        font-weight: bold;
+    }
+
+    button {
+        width: 20vh;
+        height: 100%;
+        padding: 0;
     }
 }
 
-.disabled {
-    background-color: black;
-    color: white;
-    border: black;
-}
-
-.active {
-    font-weight: bold;
+.buttonsList {
+    margin: 10px;
 }
