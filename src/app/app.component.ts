@@ -48,14 +48,19 @@ export class AppComponent {
 
   updateList(searchName: string) {
 
-    this.selectedPlanet = searchName;
-    this.selectedBodiesFiltered = [];
+    if (searchName) {
+      this.selectedPlanet = searchName;
+      this.selectedBodiesFiltered = [];
 
-    for (let body of this.bodiesServices.data) {
+      for (let body of this.bodiesServices.data) {
 
-      if (body.id.includes(searchName.toLowerCase()) || body.name.toLowerCase().includes(searchName.toLowerCase()) || body.alternativeName.includes(searchName.toLowerCase()) || body.englishName.toLowerCase().includes(searchName.toLowerCase())) {
-        this.selectedBodiesFiltered.push(body);
+        if (body.id.includes(searchName.toLowerCase()) || body.name.toLowerCase().includes(searchName.toLowerCase()) || body.alternativeName.includes(searchName.toLowerCase()) || body.englishName.toLowerCase().includes(searchName.toLowerCase())) {
+          this.selectedBodiesFiltered.push(body);
+        }
       }
+    } else {
+      this.selectedPlanet = '[Choisissez une planète]'
+      this.selectedBodiesFiltered = [];
     }
   }
 }
