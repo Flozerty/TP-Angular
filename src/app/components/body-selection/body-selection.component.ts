@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { BodiesService } from '../bodies.service';
+import { BodiesService } from '../../services/bodies.service';
 
 @Component({
   selector: 'app-body-selection',
@@ -9,22 +8,30 @@ import { BodiesService } from '../bodies.service';
 })
 export class BodySelectionComponent implements OnInit {
 
-  planets: any[] = [];
   bodiesOfPlanet: any[] = [];
   bodiesTypes: string[] = [];
-  selectedType: string = ''
-  AllBodies: any[] = [];
+  allBodies: any[] = [];
+
+  selectedType = this.bodiesService.selectedType;
+
+  bodiesBySelectedType: any[] | undefined = this.bodiesService.getBodiesBySelectedType();
 
   @Output() getPlanetsByName = new EventEmitter<any[]>()
   @Output() getPlanetName = new EventEmitter<string>()
-  @Input() selectedPlanet: string = ''
+  @Output() getType = new EventEmitter<string>()
+
+  @Input() selectedPlanet: string = '';
+
 
   constructor(private bodiesService: BodiesService,) { }
 
   ngOnInit() {
 
+
+
     this.bodiesService.getData().subscribe(data => {
-      this.AllBodies = data.bodies
+      this.allBodies = data.bodies;
+      this.bodiesService.data = data.bodies;
     });
 
     this.bodiesService.getAllBodyTypes().subscribe((types: string[]) => {
@@ -38,8 +45,8 @@ export class BodySelectionComponent implements OnInit {
     this.selectedPlanet = planetName;
     console.log(this.selectedPlanet)
 
-    for (const body of this.AllBodies) {
-      if (body.aroundPlanet?.planet.toLowerCase() === planetName.toLowerCase()) {
+    for (const body of this.allBodies) {
+      if (body.aroundPlanet?.planet.toLowerCase() === planetName.toLowerCase() || body.aroundPlanet?.planet.toLowerCase() === planetName.toLowerCase()) {
         this.bodiesOfPlanet.push(body);
       }
       if (body.aroundPlanet?.planet === "terre" && planetName.toLowerCase() === "la terre")
@@ -50,8 +57,11 @@ export class BodySelectionComponent implements OnInit {
     this.getPlanetName.emit(this.selectedPlanet);
   }
 
-  selectType(type: string) {
-    this.selectedType = type;
+  selectAType(type: string) {
+    this.bodiesService.selectedType = type;
+    this.bodiesBySelectedType = this.bodiesService.getBodiesBySelectedType()
+
+    this.getType.emit(this.bodiesService.selectedType)
   }
 
 

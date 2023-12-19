@@ -9,6 +9,9 @@ export class BodiesService {
 
   constructor(private http: HttpClient) { }
 
+  public selectedType: string = 'aucun type';
+  public data: any[] = [];
+
   getData(): Observable<any> {
     return this.http.get<any>('https://api.le-systeme-solaire.net/rest/bodies?exclude=,argPeriapsis,mainAnomaly,longAscNode,rel,avgTemp,vol');
   }
@@ -24,9 +27,14 @@ export class BodiesService {
         for (const body of data.bodies) {
           bodiesTypes.add(body.bodyType);
         }
+
         return Array.from(bodiesTypes);
       })
     );
   }
-}
 
+  getBodiesBySelectedType() {
+    let bodiesSelected: any[] = this.data.filter(body => body.bodyType === this.selectedType);
+    return bodiesSelected;
+  }
+}
