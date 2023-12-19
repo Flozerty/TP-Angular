@@ -9,10 +9,9 @@
         <app-header (resetMethod)="fonctionReset()" />
 
         <app-body-selection (getPlanetsByName)="getPlanetBodies($event)" (getPlanetName)="usePlanetName($event)"
-            [selectedPlanet]="selectedPlanet" />
+            (getType)="getType($event)" [selectedPlanet]="selectedPlanet" />
         <app-search (searchEmitter)="updateList($event)" />
 
         <app-selected-body-infos [selectedBody]="selectedBody" />
     </main>
-
 </div>

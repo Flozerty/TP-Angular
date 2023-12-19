@@ -1,0 +1,42 @@
+#types {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    button {
+        margin: 10px;
+        border-radius: 8px;
+        height: 30px;
+    }
+
+
+
+}
+
+#bodiesOfSelectedType {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .buttonsList {
+        margin: 10px;
+
+        button {
+            width: 20vh;
+            height: 100%;
+            padding: 0;
+        }
+    }
+
+}
+
+.disabled {
+    background-color: black;
+    color: white;
+    border: black;
+}
+
+.active {
+    font-weight: bold;
+}
