@@ -15,19 +15,16 @@ export class AppComponent {
   selectedPlanet: string = '[Choisissez une planète]';
   selectedBody: any[] | undefined = undefined;
   selectedBodiesFiltered: any = [];
-  selectedType: string = this.bodiesServices.selectedTypeSubject.value
 
 
   fonctionReset() {
-    console.log(this.selectedType)
     this.selectedBody = undefined;
     this.selectedBodiesFiltered = [];
     this.selectedPlanetBodies = [];
     this.selectedPlanet = "[Choisissez une planète]";
-    this.bodiesServices.selectedType = 'aucun type'
+    this.bodiesServices.selectedType = ''
     this.generateNewDate();
     this.bodiesServices.getBodiesBySelectedType();
-    console.log(this.selectedType)
   }
 
   getPlanetBodies(bodies: any[]) {
@@ -38,10 +35,6 @@ export class AppComponent {
 
   usePlanetName(name: string) {
     this.selectedPlanet = name;
-  }
-
-  getType(type: string) {
-    this.selectedType = type;
   }
 
   getBodyInfo(body: any[]) {

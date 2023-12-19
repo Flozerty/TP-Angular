@@ -9,7 +9,7 @@
         <app-header (resetMethod)="fonctionReset()" />
 
         <app-body-selection (getPlanetsByName)="getPlanetBodies($event)" (getPlanetName)="usePlanetName($event)"
-            (getType)="getType($event)" [selectedPlanet]="selectedPlanet" />
+            [selectedPlanet]="selectedPlanet" />
         <app-search (searchEmitter)="updateList($event)" />
 
         <app-selected-body-infos [selectedBody]="selectedBody" />
