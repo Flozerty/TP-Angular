@@ -7,11 +7,20 @@ import { SelectionService } from '../../services/selection.service';
   styleUrl: './side-bar.component.scss'
 })
 export class SideBarComponent {
-  constructor(private sideBarListService: SideBarListService, selectionService: SelectionService) {
+  constructor(
+    private sideBarListService: SideBarListService,
+    private selectionService: SelectionService
+  ) {
     this.sideBarListService.sideList$.subscribe(list => this.bodiesList = list);
+
+    this.selectionService.selectedPlanetAround$.subscribe(body => {
+      this.selection = body;
+    })
+
+    this.sideBarListService.searchWord$.subscribe(word => this.selection = word)
   }
 
-  selectedPlanet: string = '[aucune sélection]';
+  selection: string = '';
   @Output() getBodyInfo = new EventEmitter<any>();
   @Input() today: Date = new Date();
 

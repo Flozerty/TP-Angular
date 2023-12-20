@@ -1,10 +1,10 @@
 #main-content {
     display: flex;
     flex-direction: row;
+    height: 100vh;
 
     #sideBar {
         width: 30%;
-        min-height: 800px;
     }
 
     main {
@@ -13,6 +13,7 @@
         flex-direction: column;
         align-items: center;
         cursor: url(../assets/lune.png) 10 10, pointer;
+        height: 100%;
 
         app-header,
         app-selected-body-infos {
