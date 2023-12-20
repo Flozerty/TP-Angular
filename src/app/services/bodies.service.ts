@@ -29,6 +29,6 @@ export class BodiesService {
 
         return Array.from(bodiesTypes);
       })
-    );
+    )
   }
 }

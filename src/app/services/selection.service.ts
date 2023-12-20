@@ -14,8 +14,8 @@ export class SelectionService {
   public selectedPlanetAroundSubject = new BehaviorSubject<string>('');
   selectedPlanetAround$: Observable<string> = this.selectedPlanetAroundSubject.asObservable();
 
-  public selectedBodySubject = new BehaviorSubject<string>('');
-  selectedBody$: Observable<string> = this.selectedTypeSubject.asObservable();
+  public selectedBodySubject = new BehaviorSubject<any>('');
+  selectedBody$: Observable<any> = this.selectedTypeSubject.asObservable();
 
   updateSelectedType(type: string) {
     this.selectedTypeSubject.next(type)
@@ -30,7 +30,8 @@ export class SelectionService {
 /*     this.sideBarListService.updateSelectedPlanetMoons(body);
  */  }
 
-  updateSelectedBody(body: string) {
+  updateSelectedBody(body: any) {
     this.selectedBodySubject.next(body)
+    console.log(this.selectedBodySubject.value)
   }
 }

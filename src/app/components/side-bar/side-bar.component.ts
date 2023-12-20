@@ -21,12 +21,11 @@ export class SideBarComponent {
   }
 
   selection: string = '';
-  @Output() getBodyInfo = new EventEmitter<any>();
   @Input() today: Date = new Date();
 
   bodiesList: any[] = [];
 
   bodySelect(bodySelected: any[]) {
-    this.getBodyInfo.emit(bodySelected);
+    this.selectionService.updateSelectedBody(bodySelected)
   }
 }

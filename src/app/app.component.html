@@ -1,7 +1,7 @@
 <div id="main-content">
 
     <section id="sideBar">
-        <app-side-bar [today]="today" (getBodyInfo)="getBodyInfo($event)" />
+        <app-side-bar [today]="today" />
     </section>
 
     <main>
@@ -9,7 +9,6 @@
 
         <app-body-selection />
         <app-search />
-
-        <app-selected-body-infos [selectedBody]="selectedBody" />
+        <app-selected-body-infos><router-outlet></router-outlet></app-selected-body-infos>
     </main>
 </div>

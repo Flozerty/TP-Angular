@@ -5,8 +5,8 @@ import { SelectedBodyInfosComponent } from './components/selected-body-infos/sel
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: AppComponent },
-  { path: 'body/:id', component: SelectedBodyInfosComponent, pathMatch: 'full' }
+  { path: 'home', component: SelectedBodyInfosComponent },
+  { path: 'bodies/:id', component: SelectedBodyInfosComponent, pathMatch: 'full' }
 ];
 
 @NgModule({

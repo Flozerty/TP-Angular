@@ -29,20 +29,6 @@ export class AppComponent {
     this.generateNewDate();
   }
 
-  getPlanetBodies(bodies: any[]) {
-    this.selectedPlanetBodies = bodies;
-    this.generateNewDate();
-  }
-
-  usePlanetName(name: string) {
-    this.selectedPlanet = name;
-  }
-
-  getBodyInfo(body: any[]) {
-    this.selectedBody = body;
-    this.generateNewDate();
-  }
-
   generateNewDate() {
     this.today = new Date();
   }
