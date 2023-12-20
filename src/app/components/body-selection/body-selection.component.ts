@@ -16,10 +16,7 @@ export class BodySelectionComponent implements OnInit {
 
   bodiesBySelectedType: any[] | undefined = this.selectionService.getBodiesBySelectedType();
 
-  @Output() getPlanetsByName = new EventEmitter<any[]>()
-  @Output() getPlanetName = new EventEmitter<string>()
-
-  @Input() selectedPlanet: string = '';
+  @Input() selectedPlanet: string = 'a';
 
 
   constructor(private bodiesService: BodiesService, private selectionService: SelectionService) { }
@@ -35,14 +32,20 @@ export class BodySelectionComponent implements OnInit {
 
     this.selectionService.selectedType$.subscribe(type => {
       this.selectedType = type;
-      this.bodiesBySelectedType = this.selectionService.getBodiesBySelectedType()
+      this.bodiesBySelectedType = this.selectionService.getBodiesBySelectedType();
+    })
+
+    this.selectionService.selectedPlanetAround$.subscribe(planet => {
+      this.selectedPlanet = planet;
+      this.bodiesOfPlanet = this.selectionService.getBodiesBySelectedType();
     })
   }
 
-  planetName(planetName: string) {
+  selectAPlanet(planetName: string) {
     this.bodiesOfPlanet = [];
     this.selectedPlanet = planetName;
-    console.log(this.selectedPlanet)
+
+    this.selectionService.updateSelectedPlanetAround(planetName);
 
     for (const body of this.bodiesService.data) {
       if (body.aroundPlanet?.planet.toLowerCase() === planetName.toLowerCase() || body.aroundPlanet?.planet.toLowerCase() === planetName.toLowerCase()) {
@@ -52,8 +55,6 @@ export class BodySelectionComponent implements OnInit {
         this.bodiesOfPlanet.push(body);
     }
 
-    this.getPlanetsByName.emit(this.bodiesOfPlanet);
-    this.getPlanetName.emit(this.selectedPlanet);
   }
 
   selectAType(type: string) {

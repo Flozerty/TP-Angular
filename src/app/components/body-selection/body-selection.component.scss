@@ -33,8 +33,31 @@
     border: 1px solid #ddd;
     background-color: grey;
 
+    scrollbar-width: thin;
+    scrollbar-color: grey #f1f1f1;
 
+    &::-webkit-scrollbar {
+        width: 5px;
 
+        &-thumb {
+            min-height: 80px;
+            background-color: transparent;
+            border-radius: 5px;
+            border: 2px solid #1e1e1e;
+
+            &:hover {
+                background-color: #1e1e1e;
+            }
+        }
+
+        &-track {
+            background-color: #f1f1f1;
+
+            &:hover {
+                background-color: #eaeaea;
+            }
+        }
+    }
 
     .disabled {
         background-color: black;
