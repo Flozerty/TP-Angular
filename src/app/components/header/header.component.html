@@ -1,7 +1,12 @@
-<header id="header">
-    <div id="logo">
-        PlanetBodies.com
+<header>
+    <div id="titleContainer">
+        <div id="logo"> PlanetBodies.com </div>
+        <p>Le site répertoriant les satellites de notre système</p>
     </div>
-    Le site répertoriant les satellites de notre système
-    <button (click)="reset()">reset</button>
+
+    <div id="utilityContainer">
+        <app-clock />
+        <app-reset-button />
+    </div>
+
 </header>

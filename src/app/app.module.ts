@@ -7,9 +7,11 @@ import { AppComponent } from './app.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SelectedBodyInfosComponent } from './components/selected-body-infos/selected-body-infos.component';
-import { SearchComponent } from './components/search/search.component';
+import { SearchComponent } from './components/atoms/search/search.component';
 import { FormsModule } from '@angular/forms';
-import { BodySelectionComponent } from './components/body-selection/body-selection.component'
+import { BodySelectionComponent } from './components/body-selection/body-selection.component';
+import { ClockComponent } from './components/atoms/clock/clock.component';
+import { ResetButtonComponent } from './components/atoms/reset-button/reset-button.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +20,8 @@ import { BodySelectionComponent } from './components/body-selection/body-selecti
     SelectedBodyInfosComponent,
     SearchComponent,
     BodySelectionComponent,
+    ClockComponent,
+    ResetButtonComponent,
   ],
   imports: [
     BrowserModule,

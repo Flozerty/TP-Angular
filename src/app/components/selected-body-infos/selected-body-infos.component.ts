@@ -19,7 +19,6 @@ export class SelectedBodyInfosComponent {
   ) {
     this.selectionService.selectedBody$.subscribe(body => {
       this.selectedBody = body;
-      console.log(this.selectedBody)
     })
   }
 }

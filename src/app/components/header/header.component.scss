@@ -3,9 +3,25 @@ header {
     height: 150px;
     background-color: aqua;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
+
+    #utilityContainer,
+    #titleContainer {
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    #titleContainer {
+        width: 70%;
+    }
+
 
     #logo {
         color: blueviolet;

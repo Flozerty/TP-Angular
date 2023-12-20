@@ -1,18 +1,22 @@
-<section id="types">
-    <div *ngFor="let type of bodiesTypes" class="buttonsList">
-        <button (click)="selectAType(type)"
-            [ngClass]="{'active': selectedType===type, 'disabled': !(selectedType===type)}">
-            {{ type }}
-        </button>
-    </div>
-</section>
+<div>
+    <section id="types">
+        <div *ngFor="let type of bodiesTypes" class="buttonsList">
+            <button (click)="selectAType(type)"
+                [ngClass]="{'active': selectedType===type, 'disabled': !(selectedType===type)}">
+                {{ type }}
+            </button>
+        </div>
+    </section>
 
-<section id="bodiesOfSelectedType" *ngIf="bodiesBySelectedType?.length != 0">
-    <div *ngFor="let body of bodiesBySelectedType" class="buttonsList">
-        <button (click)="selectAPlanet(body.id)"
-            [ngClass]="{'active': selectedPlanet===body.id, 'disabled': !(selectedPlanet===body.id)}">
-            {{ body.name }}
-            <span *ngIf="body?.moons">[{{ body?.moons?.length }}]</span>
-        </button>
-    </div>
-</section>
+    <app-search id="search" />
+
+    <section id="bodiesOfSelectedType" *ngIf="bodiesBySelectedType?.length != 0">
+        <div *ngFor="let body of bodiesBySelectedType" class="buttonsList">
+            <button (click)="selectAPlanet(body.id)"
+                [ngClass]="{'active': selectedPlanet===body.id, 'disabled': !(selectedPlanet===body.id)}">
+                {{ body.name }}
+                <span *ngIf="body?.moons">[{{ body?.moons?.length }}]</span>
+            </button>
+        </div>
+    </section>
+</div>

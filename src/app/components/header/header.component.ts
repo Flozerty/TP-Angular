@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { BodiesService } from '../../services/bodies.service';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { SelectionService } from '../../services/selection.service';
 import { SideBarListService } from '../../services/side-bar-list.service';
 @Component({
@@ -8,20 +7,5 @@ import { SideBarListService } from '../../services/side-bar-list.service';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-
-  @Output() resetMethod = new EventEmitter<number>()
-  constructor(
-    private bodiesService: BodiesService,
-    private selectionService: SelectionService,
-    private sideBarListService: SideBarListService
-  ) { }
-
-  reset() {
-    this.resetMethod.emit()
-    this.sideBarListService.sideListSubject.next([])
-    this.selectionService.updateSelectedType('')
-    this.selectionService.getBodiesBySelectedType();
-
-  }
 
 }

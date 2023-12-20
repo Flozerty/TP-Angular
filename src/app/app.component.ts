@@ -22,13 +22,6 @@ export class AppComponent {
   selectedPlanet: string = '[Choisissez une planète]';
   selectedBody: any[] | undefined = undefined;
 
-  fonctionReset() {
-    this.selectedBody = undefined;
-    this.selectedPlanetBodies = [];
-    this.selectedPlanet = "[Choisissez une planète]";
-    this.generateNewDate();
-  }
-
   generateNewDate() {
     this.today = new Date();
   }

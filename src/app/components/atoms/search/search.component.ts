@@ -1,7 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { SideBarListService } from '../../services/side-bar-list.service';
-import { SelectionService } from '../../services/selection.service';
+import { SideBarListService } from '../../../services/side-bar-list.service';
+import { SelectionService } from '../../../services/selection.service';
 
 @Component({
   selector: 'app-search',
