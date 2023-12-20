@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { BodiesService } from '../../services/bodies.service';
-import { Observable } from 'rxjs';
+import { SelectionService } from '../../services/selection.service';
 
 @Component({
   selector: 'app-body-selection',
@@ -14,16 +14,15 @@ export class BodySelectionComponent implements OnInit {
 
   selectedType: string = '';
 
-  bodiesBySelectedType: any[] | undefined = this.bodiesService.getBodiesBySelectedType();
+  bodiesBySelectedType: any[] | undefined = this.selectionService.getBodiesBySelectedType();
 
   @Output() getPlanetsByName = new EventEmitter<any[]>()
   @Output() getPlanetName = new EventEmitter<string>()
-  @Output() getType = new EventEmitter<string>()
 
   @Input() selectedPlanet: string = '';
 
 
-  constructor(private bodiesService: BodiesService,) { }
+  constructor(private bodiesService: BodiesService, private selectionService: SelectionService) { }
 
   ngOnInit() {
     this.bodiesService.getData().subscribe(data => {
@@ -34,9 +33,9 @@ export class BodySelectionComponent implements OnInit {
       this.bodiesTypes = types;
     })
 
-    this.bodiesService.selectedType$.subscribe(type => {
+    this.selectionService.selectedType$.subscribe(type => {
       this.selectedType = type;
-      this.bodiesBySelectedType = this.bodiesService.getBodiesBySelectedType()
+      this.bodiesBySelectedType = this.selectionService.getBodiesBySelectedType()
     })
   }
 
@@ -58,10 +57,9 @@ export class BodySelectionComponent implements OnInit {
   }
 
   selectAType(type: string) {
-    this.bodiesService.updateSelectedType(type);
-    this.bodiesBySelectedType = this.bodiesService.getBodiesBySelectedType()
+    this.selectionService.updateSelectedType(type);
+    this.bodiesBySelectedType = this.selectionService.getBodiesBySelectedType()
 
-    this.getType.emit(this.bodiesService.selectedType)
   }
 
 }

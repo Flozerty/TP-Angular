@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { BodiesService } from './services/bodies.service';
+import { SelectionService } from './services/selection.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  constructor(private bodiesServices: BodiesService) { }
+  constructor(private bodiesServices: BodiesService, private selectionService: SelectionService) { }
 
   title = 'TP-Angular';
 
@@ -22,9 +23,8 @@ export class AppComponent {
     this.selectedBodiesFiltered = [];
     this.selectedPlanetBodies = [];
     this.selectedPlanet = "[Choisissez une planète]";
-    this.bodiesServices.selectedType = ''
     this.generateNewDate();
-    this.bodiesServices.getBodiesBySelectedType();
+    this.selectionService.getBodiesBySelectedType();
   }
 
   getPlanetBodies(bodies: any[]) {

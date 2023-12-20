@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { BodiesService } from '../../services/bodies.service';
-
+import { SelectionService } from '../../services/selection.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -9,11 +9,11 @@ import { BodiesService } from '../../services/bodies.service';
 export class HeaderComponent {
 
   @Output() resetMethod = new EventEmitter<number>()
-  constructor(private bodiesService: BodiesService) { }
+  constructor(private bodiesService: BodiesService, private selectionService: SelectionService) { }
 
   reset() {
     this.resetMethod.emit()
-    this.bodiesService.updateSelectedType('')
+    this.selectionService.updateSelectedType('')
   }
 
 }
