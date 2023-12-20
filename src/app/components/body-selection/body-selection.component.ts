@@ -9,17 +9,18 @@ import { SelectionService } from '../../services/selection.service';
 })
 export class BodySelectionComponent implements OnInit {
 
+  constructor(
+    private bodiesService: BodiesService,
+    private selectionService: SelectionService
+  ) { }
+
   bodiesOfPlanet: any[] = [];
   bodiesTypes: string[] = [];
 
   selectedType: string = '';
+  selectedPlanet: string = '';
 
   bodiesBySelectedType: any[] | undefined = this.selectionService.getBodiesBySelectedType();
-
-  @Input() selectedPlanet: string = 'a';
-
-
-  constructor(private bodiesService: BodiesService, private selectionService: SelectionService) { }
 
   ngOnInit() {
     this.bodiesService.getData().subscribe(data => {
@@ -42,19 +43,7 @@ export class BodySelectionComponent implements OnInit {
   }
 
   selectAPlanet(planetName: string) {
-    this.bodiesOfPlanet = [];
-    this.selectedPlanet = planetName;
-
     this.selectionService.updateSelectedPlanetAround(planetName);
-
-    for (const body of this.bodiesService.data) {
-      if (body.aroundPlanet?.planet.toLowerCase() === planetName.toLowerCase() || body.aroundPlanet?.planet.toLowerCase() === planetName.toLowerCase()) {
-        this.bodiesOfPlanet.push(body);
-      }
-      if (body.aroundPlanet?.planet === "terre" && planetName.toLowerCase() === "la terre")
-        this.bodiesOfPlanet.push(body);
-    }
-
   }
 
   selectAType(type: string) {
