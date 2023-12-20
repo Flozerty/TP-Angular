@@ -8,15 +8,18 @@ import { SelectionService } from '../../services/selection.service';
   templateUrl: './selected-body-infos.component.html',
   styleUrl: './selected-body-infos.component.scss'
 })
-export class SelectedBodyInfosComponent implements OnInit {
+export class SelectedBodyInfosComponent {
 
-  constructor(private route: ActivatedRoute, private bodiesService: BodiesService, private selectionService: SelectionService) { }
+  selectedBody: any = [];
 
-  @Input() selectedBody: any = [];
-
-  ngOnInit(): void {
-
-    const id = this.route.snapshot.paramMap.get('id')
-    this.selectedBody = this.selectionService.updateSelectedBody(id)
+  constructor(
+    private route: ActivatedRoute,
+    private bodiesService: BodiesService,
+    private selectionService: SelectionService
+  ) {
+    this.selectionService.selectedBody$.subscribe(body => {
+      this.selectedBody = body;
+      console.log(this.selectedBody)
+    })
   }
 }
