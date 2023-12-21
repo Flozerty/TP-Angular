@@ -8,7 +8,7 @@ import { SelectionService } from '../../services/selection.service';
   templateUrl: './selected-body-infos.component.html',
   styleUrl: './selected-body-infos.component.scss'
 })
-export class SelectedBodyInfosComponent {
+export class SelectedBodyInfosComponent implements OnInit {
 
   selectedBody: any = [];
 
@@ -21,4 +21,12 @@ export class SelectedBodyInfosComponent {
       this.selectedBody = body;
     })
   }
+
+  ngOnInit(): void {
+    const id: string = this.route.snapshot.paramMap.get('id') ?? '';
+    console.log(id);
+    this.selectionService.findBodyById(id).subscribe(body => this.selectionService.selectedBodySubject.next(body));
+    console.log(this.selectedBody)
+  }
 }
+//conflit : ligne 20 et 28

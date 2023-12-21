@@ -44,6 +44,7 @@ export class BodySelectionComponent implements OnInit {
 
   selectAPlanet(planetName: string) {
     this.selectionService.updateSelectedPlanetAround(planetName);
+    this.selectionService.selectedBodySubject.next(this.selectionService.getBodyById(planetName))
   }
 
   selectAType(type: string) {

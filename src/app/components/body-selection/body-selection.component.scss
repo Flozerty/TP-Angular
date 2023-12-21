@@ -1,92 +1,106 @@
-div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+#content {
 
-    #types {
+    width: 100%;
+
+    #selection {
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+        flex-direction: column;
         justify-content: center;
+        align-items: center;
 
-        button {
-            border-radius: 8px;
-            height: 30px;
-        }
+        #types {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
 
-        .disabled {
-            background-color: black;
-            color: white;
-            border: black;
-        }
-
-        .active {
-            font-weight: bold;
-        }
-    }
-
-    #search {
-        margin-bottom: 10px;
-    }
-
-    #bodiesOfSelectedType {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        max-height: 250px;
-        width: 80%;
-        margin: auto;
-        box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
-        border-radius: 15px;
-        border: 1px solid #ddd;
-        background-color: grey;
-
-        overflow-y: auto;
-        scrollbar-width: thin;
-        scrollbar-color: grey #f1f1f1;
-
-        &::-webkit-scrollbar {
-            width: 5px;
-
-            &-thumb {
-                min-height: 80px;
-                background-color: transparent;
-                border-radius: 5px;
-                border: 2px solid #1e1e1e;
-
-                &:hover {
-                    background-color: #1e1e1e;
-                }
+            button {
+                border-radius: 8px;
+                height: 30px;
             }
 
-            &-track {
-                background-color: #f1f1f1;
+            .disabled {
+                background-color: black;
+                color: white;
+                border: black;
+            }
 
-                &:hover {
-                    background-color: #eaeaea;
-                }
+            .active {
+                font-weight: bold;
             }
         }
 
-        .disabled {
-            background-color: black;
-            color: white;
-            border: black;
+        #search {
+            margin-bottom: 10px;
         }
 
-        .active {
-            font-weight: bold;
+        #bodiesOfSelectedType {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-height: 150px;
+            width: 80%;
+            margin: auto;
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            border: 1px solid #ddd;
+            background-color: grey;
+
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: grey #f1f1f1;
+
+            &::-webkit-scrollbar {
+                width: 5px;
+
+                &-thumb {
+                    height: 50px;
+                    background-color: transparent;
+                    border-radius: 5px;
+                    border: 2px solid #1e1e1e;
+
+                    &:hover {
+                        background-color: #1e1e1e;
+                    }
+                }
+
+                &-track {
+                    background-color: #f1f1f1;
+
+                    &:hover {
+                        background-color: #eaeaea;
+                    }
+                }
+            }
+
+            .disabled {
+                background-color: black;
+                color: white;
+                border: black;
+            }
+
+            .active {
+                font-weight: bold;
+            }
+
+            button {
+                width: 20vh;
+                height: 100%;
+                padding: 0;
+            }
         }
 
-        button {
-            width: 20vh;
-            height: 100%;
-            padding: 0;
+        .buttonsList {
+            margin: 10px;
         }
     }
 
-    .buttonsList {
-        margin: 10px;
+    #resetButton {
+        position: relative;
+        left: 0;
+        top: 0;
+        margin: 0;
+        padding: 0;
+        width: fit-content;
     }
 }
