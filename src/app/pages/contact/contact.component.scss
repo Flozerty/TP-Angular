@@ -1,0 +1,18 @@
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 20vh;
+    width: 100vh;
+    background-color: wheat;
+
+    p {
+        margin: 0;
+    }
+
+    .gras {
+        font-weight: bold;
+    }
+}

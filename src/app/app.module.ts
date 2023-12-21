@@ -15,7 +15,8 @@ import { FormsModule } from '@angular/forms';
 import { BodySelectionComponent } from './components/body-selection/body-selection.component';
 import { ClockComponent } from './components/atoms/clock/clock.component';
 import { ResetButtonComponent } from './components/atoms/reset-button/reset-button.component';
-import { HomePageComponent } from './pages/home-page/home-page.component'
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { ContactComponent } from './pages/contact/contact.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +28,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component'
     ClockComponent,
     ResetButtonComponent,
     HomePageComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
