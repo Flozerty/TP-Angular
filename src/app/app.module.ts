@@ -9,12 +9,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { HeaderComponent } from './components/header/header.component';
-import { SelectedBodyInfosComponent } from './components/selected-body-infos/selected-body-infos.component';
+import { SelectedBodyInfosComponent } from './pages/selected-body-infos/selected-body-infos.component';
 import { SearchComponent } from './components/atoms/search/search.component';
 import { FormsModule } from '@angular/forms';
 import { BodySelectionComponent } from './components/body-selection/body-selection.component';
 import { ClockComponent } from './components/atoms/clock/clock.component';
-import { ResetButtonComponent } from './components/atoms/reset-button/reset-button.component'
+import { ResetButtonComponent } from './components/atoms/reset-button/reset-button.component';
+import { HomePageComponent } from './pages/home-page/home-page.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +26,7 @@ import { ResetButtonComponent } from './components/atoms/reset-button/reset-butt
     BodySelectionComponent,
     ClockComponent,
     ResetButtonComponent,
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,

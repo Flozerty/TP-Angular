@@ -1,7 +1,7 @@
 <section>
     <p>Dernière liste des satellites de : {{(selection ? selection : '[aucune sélection]') | titlecase}}</p>
 
-    <p> mise à jour le {{today | date:'dd/MM/YYYY'}}</p>
+    <p>: mise à jour le {{today | date:'dd/MM/YYYY'}}</p>
     <ul>
         <li *ngFor="let body of bodiesList" (click)="bodySelect(body)" routerLink="/bodies/{{body.id}}">
             {{body.name}}

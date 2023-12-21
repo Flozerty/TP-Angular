@@ -6,6 +6,4 @@ import { SideBarListService } from '../../services/side-bar-list.service';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent {
-
-}
+export class HeaderComponent { }

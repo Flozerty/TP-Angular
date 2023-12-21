@@ -9,7 +9,7 @@ import { SelectionService } from '../../../services/selection.service';
   styleUrl: './search.component.scss'
 })
 export class SearchComponent {
-  @Output() searchEmitter = new EventEmitter<string>();
+
   word: string = '';
 
   constructor(

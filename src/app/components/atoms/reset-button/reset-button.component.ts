@@ -18,7 +18,8 @@ export class ResetButtonComponent {
     this.sideBarListService.sideListSubject.next([]);
     this.selectionService.updateSelectedType('');
     this.selectionService.getBodiesBySelectedType();
-    this.selectionService.updateSelectedBody('')
-    this.selectionService.updateSelectedPlanetAround('')
+    this.selectionService.updateSelectedPlanetAround('');
+    this.selectionService.destroy$.next();
+    this.selectionService.destroy$.complete();
   }
 }

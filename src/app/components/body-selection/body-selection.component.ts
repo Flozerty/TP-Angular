@@ -39,13 +39,12 @@ export class BodySelectionComponent implements OnInit {
     this.selectionService.selectedPlanetAround$.subscribe(planet => {
       this.selectedPlanet = planet;
       this.bodiesOfPlanet = this.selectionService.getBodiesBySelectedType();
+      this.selectionService.selectedBodySubject.next(this.selectionService.getBodyById(planet))
     })
   }
 
   selectAPlanet(planetName: string) {
     this.selectionService.updateSelectedPlanetAround(planetName);
-    this.selectionService.selectedBodySubject.next(this.selectionService.getBodyById(planetName))
-
   }
 
   selectAType(type: string) {

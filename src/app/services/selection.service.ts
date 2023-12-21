@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { BodiesService } from './bodies.service';
 import { HttpClient } from '@angular/common/http';
 @Injectable({
@@ -8,6 +8,8 @@ import { HttpClient } from '@angular/common/http';
 export class SelectionService {
 
   constructor(private bodiesService: BodiesService, private http: HttpClient) { }
+
+  destroy$ = new Subject<void>()
 
   public selectedTypeSubject = new BehaviorSubject<string>('');
   selectedType$: Observable<string> = this.selectedTypeSubject.asObservable();
@@ -40,5 +42,10 @@ export class SelectionService {
 
   findBodyById(bodyId: string) {
     return this.http.get<any>(`https://api.le-systeme-solaire.net/rest/bodies/${bodyId}`);
+  }
+
+
+  resetMethod() {
+
   }
 }
