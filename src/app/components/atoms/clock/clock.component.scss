@@ -1,8 +1,3 @@
-@font-face {
-    font-family: 'silkscreen';
-    src: url('../../../../assets/fonts/Silkscreen/Silkscreen-Bold.ttf') format('ttf');
-}
-
 #now {
     display: flex;
     flex-direction: column;
@@ -13,11 +8,10 @@
     }
 
     #time {
-        font-family: 'silkscreen', sans-serif;
+        font-family: 'Silkscreen', sans-serif;
 
         color: red;
-        font-size: 1.5em;
-        font-weight: 700;
+        font-size: 2em;
         background-color: black;
         padding: 10px 20px;
         border-radius: 50px;
