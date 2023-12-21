@@ -7,7 +7,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomePageComponent, pathMatch: 'full' },
   { path: 'bodies/:id', component: SelectedBodyInfosComponent, pathMatch: 'full' },
-  { path: '*', redirectTo: '/home' }
+  { path: '**', redirectTo: '/home' }
 ];
 
 @NgModule({
