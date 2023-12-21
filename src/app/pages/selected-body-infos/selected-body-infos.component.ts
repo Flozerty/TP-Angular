@@ -1,7 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { BodiesService } from '../../services/bodies.service';
 import { SelectionService } from '../../services/selection.service';
+import { subscriptionLogsToBeFn } from 'rxjs/internal/testing/TestScheduler';
+import { Subscription, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-selected-body-infos',
@@ -11,23 +13,30 @@ import { SelectionService } from '../../services/selection.service';
 export class SelectedBodyInfosComponent implements OnInit {
 
   selectedBody: any = '';
+  private selectedTest!: Subscription
 
   constructor(
     private route: ActivatedRoute,
     private bodiesService: BodiesService,
     private selectionService: SelectionService
   ) {
-    this.selectionService.selectedBody$.subscribe(body => {
-      this.selectedBody = body;
-      console.log(this.selectedBody)
-    })
+
   }
 
   ngOnInit(): void {
+
+    this.selectedBody = ''
+    this.selectionService.selectedBody$.pipe(takeUntil(this.selectionService.destroy$)).subscribe(body => {
+      this.selectedBody = body;
+      /* console.log(this.selectedBody) */
+    })
+
     const id: string = this.route.snapshot.paramMap.get('id') ?? '';
-    id ?
-      this.selectionService.findBodyById(id).subscribe(body => this.selectionService.selectedBodySubject.next(body))
-      : this.selectedBody = '';
+    if (id) {
+      this.selectionService
+        .findBodyById(id)
+        .pipe(takeUntil(this.selectionService.destroy$))
+        .subscribe(body => this.selectionService.selectedBodySubject.next(body))
+    }
   }
 }
-//conflit : ligne 20 et 28 selectedBody$ 2 differents, 1st = ok
