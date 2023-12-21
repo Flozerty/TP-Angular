@@ -26,13 +26,15 @@
                     <th scope="row">Données :</th>
 
                     <td *ngIf="selectedBody.discoveryDate">
-                        Découverte le <strong>{{selectedBody.discoveryDate}}</strong>
+                        Découverte le :<br />
+                        <strong>{{selectedBody.discoveryDate}}</strong>
                     </td>
                     <td *ngIf="selectedBody.discoveryDate">
-                        par <strong>{{selectedBody.discoveredBy}}</strong>
+                        par :<br />
+                        <strong>{{selectedBody.discoveredBy}}</strong>
                     </td>
                     <td>
-                        Type : <strong>{{selectedBody.bodyType}}</strong>
+                        Type :<br /> <strong>{{selectedBody.bodyType}}</strong>
                     </td>
                 </tr>
             </tbody>

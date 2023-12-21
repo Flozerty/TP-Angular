@@ -14,12 +14,17 @@ section {
 
     table {
         margin-bottom: 5px;
+        border: 1px solid #333;
     }
 
-    table,
-    td,
     th {
+        width: 10%;
         border: 1px solid #333;
+    }
+
+    td {
+        border: 1px solid #333;
+        width: 20%;
     }
 
     thead {
