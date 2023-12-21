@@ -13,14 +13,10 @@ header {
         color: rgba(255, 255, 255, 0.5);
     }
 
-    #utilityContainer,
-    #titleContainer {
 
+    #titleContainer {
         display: flex;
         flex-direction: column;
-    }
-
-    #titleContainer {
         width: 80%;
         height: 100%;
         justify-content: space-around;

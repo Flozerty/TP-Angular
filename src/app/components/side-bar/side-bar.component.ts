@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SideBarListService } from '../../services/side-bar-list.service';
 import { SelectionService } from '../../services/selection.service';
 @Component({
@@ -12,16 +12,12 @@ export class SideBarComponent {
     private selectionService: SelectionService
   ) {
     this.sideBarListService.sideList$.subscribe(list => this.bodiesList = list);
-
-    this.selectionService.selectedPlanetAround$.subscribe(body => {
-      this.selection = body;
-    })
-
+    this.selectionService.selectedPlanetAround$.subscribe(body => this.selection = body)
     this.sideBarListService.searchWord$.subscribe(word => this.selection = word)
   }
 
   selection: string = '';
-  @Input() today: Date = new Date();
+  today: Date = new Date();
 
   bodiesList: any[] = [];
 

@@ -10,7 +10,7 @@ import { SelectionService } from '../../services/selection.service';
 })
 export class SelectedBodyInfosComponent implements OnInit {
 
-  selectedBody: any = [];
+  selectedBody: any = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -19,14 +19,15 @@ export class SelectedBodyInfosComponent implements OnInit {
   ) {
     this.selectionService.selectedBody$.subscribe(body => {
       this.selectedBody = body;
+      console.log(this.selectedBody)
     })
   }
 
   ngOnInit(): void {
     const id: string = this.route.snapshot.paramMap.get('id') ?? '';
-    console.log(id);
-    this.selectionService.findBodyById(id).subscribe(body => this.selectionService.selectedBodySubject.next(body));
-    console.log(this.selectedBody)
+    id ?
+      this.selectionService.findBodyById(id).subscribe(body => this.selectionService.selectedBodySubject.next(body))
+      : this.selectedBody = '';
   }
 }
-//conflit : ligne 20 et 28
+//conflit : ligne 20 et 28 selectedBody$ 2 differents, 1st = ok
