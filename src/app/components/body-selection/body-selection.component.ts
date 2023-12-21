@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BodiesService } from '../../services/bodies.service';
 import { SelectionService } from '../../services/selection.service';
 
@@ -14,13 +14,11 @@ export class BodySelectionComponent implements OnInit {
     private selectionService: SelectionService
   ) { }
 
-  bodiesOfPlanet: any[] = [];
   bodiesTypes: string[] = [];
-
   selectedType: string = '';
   selectedPlanet: string = '';
 
-  bodiesBySelectedType: any[] | undefined = this.selectionService.getBodiesBySelectedType();
+  bodiesBySelectedType: any[] | undefined;
 
   ngOnInit() {
     this.bodiesService.getData().subscribe(data => {
@@ -38,7 +36,6 @@ export class BodySelectionComponent implements OnInit {
 
     this.selectionService.selectedPlanetAround$.subscribe(planet => {
       this.selectedPlanet = planet;
-      this.bodiesOfPlanet = this.selectionService.getBodiesBySelectedType();
       this.selectionService.selectedBodySubject.next(this.selectionService.getBodyById(planet))
     })
   }

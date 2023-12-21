@@ -8,11 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class ClockComponent implements OnInit {
 
   time: number = Date.now()
-
+  seg: boolean = false;
   ngOnInit(): void {
 
     window.setInterval(() => {
       this.time = Date.now();
-    }, 1000)
+      this.seg = !this.seg;
+    }, 500)
+
   }
 }

@@ -1,18 +1,46 @@
 <section>
     <article *ngIf="selectedBody">
+        <table id="nameDiv">
+            <!-- <caption>
+                Tableau de {{selectedBody.name}}
+            </caption> -->
+            <thead>
+                <tr>
+                    <th colspan="4">Nom : {{selectedBody.name}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Noms :</th>
+                    <td>
+                        Anglais : <strong>{{selectedBody.englishName}}</strong>
+                    </td>
+                    <td *ngIf="selectedBody.alternativeName">
+                        Alternatif : <strong>{{selectedBody.alternativeName}}</strong>
+                    </td>
+                    <td>
+                        Id : <strong>{{selectedBody.id}}</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Données :</th>
 
-        <div id="nameDiv">
-            <p>Nom : {{selectedBody.name}}</p>
-            <p>Nom Anglais : {{selectedBody.englishName}}</p>
-            <p *ngIf="selectedBody.alternativeName">Nom Alternatif : {{selectedBody.alternativeName}}</p>
-            <p>Id : {{selectedBody.id}}</p>
-        </div>
+                    <td *ngIf="selectedBody.discoveryDate">
+                        Découverte le <strong>{{selectedBody.discoveryDate}}</strong>
+                    </td>
+                    <td *ngIf="selectedBody.discoveryDate">
+                        par <strong>{{selectedBody.discoveredBy}}</strong>
+                    </td>
+                    <td>
+                        Type : <strong>{{selectedBody.bodyType}}</strong>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 
-        <p *ngIf="selectedBody.discoveryDate">
-            Découverte le {{selectedBody.discoveryDate}} par {{selectedBody.discoveredBy}}
+        <p>
+            <===extrait du code source===>
         </p>
-
-        <p>extrait du code source :</p>
         <div id="code">
             <p>{{selectedBody | json}}</p>
         </div>

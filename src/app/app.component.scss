@@ -14,12 +14,12 @@
         flex-direction: column;
         align-items: center;
         cursor: url(../assets/lune.png) 10 10, pointer;
-        height: 100%;
+        max-height: 100vh;
 
         app-header,
-        app-body-selection,
-        app-selected-body-infos {
+        app-body-selection {
             width: 100%;
+            margin: 0;
         }
 
         app-body-selection {
