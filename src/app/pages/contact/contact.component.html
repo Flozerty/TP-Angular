@@ -9,7 +9,7 @@
                 <label for="name">Votre nom :</label>
                 <input type="text" id="name" formControlName="name" required>
                 <div *ngIf="myForm.get('name')?.value && myForm.get('name')?.errors">
-                    <span class="text-danger">Veuillez renseigner votre nom et votre prénom</span>
+                    <span class="text-danger">Non, tu t'appelles Bob.</span>
                 </div>
             </div>
             <div>

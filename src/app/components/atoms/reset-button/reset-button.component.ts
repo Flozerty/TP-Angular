@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SelectionService } from '../../../services/selection.service';
 import { SideBarListService } from '../../../services/side-bar-list.service';
+import { ButtonService } from '../../../services/button.service';
 
 @Component({
   selector: 'app-reset-button',
@@ -12,7 +13,12 @@ export class ResetButtonComponent {
   constructor(
     private selectionService: SelectionService,
     private sideBarListService: SideBarListService,
-  ) { }
+    private buttonService: ButtonService,
+  ) {
+    this.buttonService.button$.subscribe(name => this.buttonName = name)
+  }
+
+  buttonName: string = '';
 
   reset() {
     this.sideBarListService.sideListSubject.next([]);

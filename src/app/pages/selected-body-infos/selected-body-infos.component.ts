@@ -4,6 +4,7 @@ import { BodiesService } from '../../services/bodies.service';
 import { SelectionService } from '../../services/selection.service';
 import { subscriptionLogsToBeFn } from 'rxjs/internal/testing/TestScheduler';
 import { Subscription, takeUntil } from 'rxjs';
+import { ButtonService } from '../../services/button.service';
 
 @Component({
   selector: 'app-selected-body-infos',
@@ -18,14 +19,16 @@ export class SelectedBodyInfosComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private bodiesService: BodiesService,
-    private selectionService: SelectionService
+    private selectionService: SelectionService,
+    private buttonService: ButtonService,
   ) {
 
   }
 
   ngOnInit(): void {
+    this.buttonService.buttonNameChange('reset');
 
-    this.selectedBody = ''
+    this.selectedBody = '';
     this.selectionService.selectedBody$.pipe(takeUntil(this.selectionService.destroy$)).subscribe(body => {
       this.selectedBody = body;
       /* console.log(this.selectedBody) */
@@ -33,8 +36,7 @@ export class SelectedBodyInfosComponent implements OnInit {
 
     const id: string = this.route.snapshot.paramMap.get('id') ?? '';
     if (id) {
-      this.selectionService
-        .findBodyById(id)
+      this.selectionService.findBodyById(id)
         .pipe(takeUntil(this.selectionService.destroy$))
         .subscribe(body => this.selectionService.selectedBodySubject.next(body))
     }
