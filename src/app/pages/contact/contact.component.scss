@@ -1,18 +1,28 @@
-section {
+form {
+    text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 
-    height: 20vh;
+    height: 200px;
     width: 100vh;
     background-color: wheat;
 
-    p {
-        margin: 0;
+    h2 {
+        font-weight: bold;
+        font-size: 1em;
+        width: 100%;
     }
 
-    .gras {
-        font-weight: bold;
+    #identity {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    #message {
+        display: flex;
+        align-items: center;
     }
 }

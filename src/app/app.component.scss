@@ -26,6 +26,13 @@
             padding: 10px;
         }
 
+        app-tools {
+            width: 100%;
+            padding: 5px;
+        }
 
+        router-outlet {
+            width: 100%;
+        }
     }
 }

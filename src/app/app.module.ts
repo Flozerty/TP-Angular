@@ -11,12 +11,15 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SelectedBodyInfosComponent } from './pages/selected-body-infos/selected-body-infos.component';
 import { SearchComponent } from './components/atoms/search/search.component';
-import { FormsModule } from '@angular/forms';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { BodySelectionComponent } from './components/body-selection/body-selection.component';
 import { ClockComponent } from './components/atoms/clock/clock.component';
 import { ResetButtonComponent } from './components/atoms/reset-button/reset-button.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { ContactComponent } from './pages/contact/contact.component'
+import { ContactComponent } from './pages/contact/contact.component';
+import { ToolsComponent } from './components/tools/tools.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,12 +32,14 @@ import { ContactComponent } from './pages/contact/contact.component'
     ResetButtonComponent,
     HomePageComponent,
     ContactComponent,
+    ToolsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'fr-FR' }
