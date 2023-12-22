@@ -23,14 +23,14 @@
         <div>
             <div id="message">
                 <label for="message">Votre message : </label>
-                <textarea rows="10" cols="50" id="message" maxlength="1000" formControlName="message"></textarea>
+                <textarea rows="7" cols="50" id="message" maxlength="1001" formControlName="message"></textarea>
             </div>
             <div *ngIf="myForm.get('message')?.value && myForm.get('message')?.errors">
                 <span class="text-danger">Veuillez saisir un message entre 10 et 1000 caractères.</span>
             </div>
         </div>
         <button type="submit" [disabled]="!myForm.valid">
-            Se connecter
+            Envoyer
         </button>
     </form>
 </section>
