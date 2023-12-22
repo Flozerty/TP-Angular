@@ -5,9 +5,11 @@ form {
     justify-content: space-around;
     align-items: center;
 
+    border-radius: 40px;
+
     height: 500px;
     width: 100vh;
-    background-color: wheat;
+    background-color: grey;
 
     h2 {
         font-weight: bold;
@@ -24,5 +26,9 @@ form {
     #message {
         display: flex;
         align-items: center;
+    }
+
+    .errorMessage {
+        color: red;
     }
 }

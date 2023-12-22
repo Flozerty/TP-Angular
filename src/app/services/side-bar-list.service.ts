@@ -38,6 +38,7 @@ export class SideBarListService {
     const list: any[] = [];
     this.searchWordSubject.next(search)
     if (search) {
+      console.log(search)
       for (let body of this.bodiesService.data) {
 
         if (

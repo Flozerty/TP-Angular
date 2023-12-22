@@ -1,36 +1,32 @@
-<section>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <h2>page de contact</h2>
 
-
-    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
-        <h2>page de contact</h2>
-
-        <div id="identity">
-            <div id="name">
-                <label for="name">Votre nom :</label>
-                <input type="text" id="name" formControlName="name" required>
-                <div *ngIf="myForm.get('name')?.value && myForm.get('name')?.errors">
-                    <span class="text-danger">Non, tu t'appelles Bob.</span>
-                </div>
-            </div>
-            <div>
-                <label for="email">Email: </label>
-                <input type="email" id="email" formControlName="email" required>
-                <div *ngIf="myForm.get('email')?.value && myForm.get('email')?.errors">
-                    <span class="text-danger">veuillez renseigner un email valide</span>
-                </div>
+    <div id="identity">
+        <div id="name">
+            <label for="name">Votre nom :</label>
+            <input type="text" id="name" formControlName="name" required>
+            <div *ngIf="myForm.get('name')?.value && myForm.get('name')?.errors">
+                <span class="errorMessage">Non, tu t'appelles Bob.</span>
             </div>
         </div>
         <div>
-            <div id="message">
-                <label for="message">Votre message : </label>
-                <textarea rows="7" cols="50" id="message" maxlength="1001" formControlName="message"></textarea>
-            </div>
-            <div *ngIf="myForm.get('message')?.value && myForm.get('message')?.errors">
-                <span class="text-danger">Veuillez saisir un message entre 10 et 1000 caractères.</span>
+            <label for="email">Email: </label>
+            <input type="email" id="email" formControlName="email" required>
+            <div *ngIf="myForm.get('email')?.value && myForm.get('email')?.errors">
+                <span class="errorMessage">veuillez renseigner un email valide</span>
             </div>
         </div>
-        <button type="submit" [disabled]="!myForm.valid">
-            Envoyer
-        </button>
-    </form>
-</section>
+    </div>
+    <div>
+        <div id="message">
+            <label for="message">Votre message : </label>
+            <textarea rows="7" cols="50" id="message" maxlength="1001" formControlName="message"></textarea>
+        </div>
+        <div *ngIf="myForm.get('message')?.value && myForm.get('message')?.errors">
+            <span class="errorMessage">Veuillez saisir un message entre 10 et 1000 caractères.</span>
+        </div>
+    </div>
+    <button type="submit" [disabled]="!myForm.valid">
+        Envoyer
+    </button>
+</form>
