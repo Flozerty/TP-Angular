@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SelectedBodyInfosComponent } from './pages/selected-body-infos/selected-body-infos.component';
-import { HomePageComponent } from './pages/home-page/home-page.component';
-import { ContactComponent } from './pages/contact/contact.component';
+import { SelectedBodyInfosComponent } from './components/pages/selected-body-infos/selected-body-infos.component';
+import { HomePageComponent } from './components/pages/home-page/home-page.component';
+import { ContactComponent } from './components/pages/contact/contact.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
