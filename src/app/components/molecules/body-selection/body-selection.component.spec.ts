@@ -10,8 +10,8 @@ describe('BodySelectionComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [BodySelectionComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(BodySelectionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

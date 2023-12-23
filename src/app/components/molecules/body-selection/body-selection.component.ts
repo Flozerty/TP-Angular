@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BodiesService } from '../../services/bodies.service';
-import { SelectionService } from '../../services/selection.service';
+import { BodiesService } from '../../../services/bodies.service';
+import { SelectionService } from '../../../services/selection.service';
 
 @Component({
   selector: 'app-body-selection',

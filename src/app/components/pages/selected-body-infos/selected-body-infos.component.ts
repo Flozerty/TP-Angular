@@ -1,10 +1,10 @@
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BodiesService } from '../../services/bodies.service';
-import { SelectionService } from '../../services/selection.service';
+import { BodiesService } from '../../../services/bodies.service';
+import { SelectionService } from '../../../services/selection.service';
 import { subscriptionLogsToBeFn } from 'rxjs/internal/testing/TestScheduler';
 import { Subscription, takeUntil } from 'rxjs';
-import { ButtonService } from '../../services/button.service';
+import { ButtonService } from '../../../services/button.service';
 
 @Component({
   selector: 'app-selected-body-infos',

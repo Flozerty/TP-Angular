@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ButtonService } from '../../services/button.service';
-import { ResetService } from '../../services/reset.service';
+import { ButtonService } from '../../../services/button.service';
+import { ResetService } from '../../../services/reset.service';
 
 @Component({
   selector: 'app-home-page',
