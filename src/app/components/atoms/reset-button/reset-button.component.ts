@@ -11,10 +11,9 @@ import { ResetService } from '../../../services/reset.service';
 })
 export class ResetButtonComponent {
 
+  buttonName: string = '';
+
   constructor(private buttonService: ButtonService) {
     this.buttonService.button$.subscribe(name => this.buttonName = name)
   }
-
-  buttonName: string = '';
-
 }

@@ -9,7 +9,7 @@ import { SelectionService } from '../../services/selection.service';
 export class SideBarComponent {
   constructor(
     private sideBarListService: SideBarListService,
-    private selectionService: SelectionService
+    private selectionService: SelectionService,
   ) {
     this.sideBarListService.sideList$.subscribe(list => this.bodiesList = list);
     this.selectionService.selectedPlanetAround$.subscribe(body => this.selection = body)
@@ -22,6 +22,6 @@ export class SideBarComponent {
   bodiesList: any[] = [];
 
   bodySelect(bodySelected: any[]) {
-    this.selectionService.updateSelectedBody(bodySelected)
+    this.selectionService.selectedBodySubject.next(bodySelected)
   }
 }

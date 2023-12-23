@@ -13,6 +13,6 @@ export class HomePageComponent {
 
   ngOnInit(): void {
     this.buttonService.buttonNameChange('reset');
-    this.resetService.resetMethod()
+    this.resetService.resetMethod();
   }
 }
