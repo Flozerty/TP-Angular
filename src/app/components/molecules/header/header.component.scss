@@ -1,7 +1,7 @@
 header {
     width: 100%;
     height: 150px;
-    background: url('../../../assets/bannerHeader.png');
+    background: url('../../../../assets/bannerHeader.png');
     background-size: cover;
     background-position: 0;
     display: flex;
@@ -45,7 +45,7 @@ header {
         border-radius: 20px;
         padding: 10px 10px;
         box-shadow: 0 0 50px rgb(150, 150, 150);
-        background: url(../../../assets/logo.png);
+        background: url(../../../../assets/logo.png);
         background-color: black;
         background-size: contain;
         background-repeat: no-repeat;

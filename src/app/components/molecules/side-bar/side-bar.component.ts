@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { SideBarListService } from '../../services/side-bar-list.service';
-import { SelectionService } from '../../services/selection.service';
+import { SideBarListService } from '../../../services/side-bar-list.service';
+import { SelectionService } from '../../../services/selection.service';
 @Component({
   selector: 'app-side-bar',
   templateUrl: './side-bar.component.html',
