@@ -14,24 +14,20 @@ import { ButtonService } from '../../services/button.service';
 export class SelectedBodyInfosComponent implements OnInit {
 
   selectedBody: any = '';
-  private selectedTest!: Subscription
 
   constructor(
     private route: ActivatedRoute,
     private bodiesService: BodiesService,
     private selectionService: SelectionService,
     private buttonService: ButtonService,
-  ) {
-
-  }
+  ) { }
 
   ngOnInit(): void {
     this.buttonService.buttonNameChange('reset');
 
-    this.selectedBody = '';
     this.selectionService.selectedBody$.pipe(takeUntil(this.selectionService.destroy$)).subscribe(body => {
       this.selectedBody = body;
-      /* console.log(this.selectedBody) */
+      console.log(this.selectedBody);
     })
 
     const id: string = this.route.snapshot.paramMap.get('id') ?? '';

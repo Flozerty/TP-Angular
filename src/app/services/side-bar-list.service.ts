@@ -7,16 +7,15 @@ import { SelectionService } from './selection.service';
 })
 export class SideBarListService {
 
-
   public searchWordSubject = new BehaviorSubject<string>('');
   searchWord$: Observable<string> = this.searchWordSubject.asObservable();
-
-
 
   constructor(
     private bodiesService: BodiesService,
     private selectionService: SelectionService,
-  ) { this.selectionService.selectedPlanetAround$.subscribe(word => this.updateSelectedPlanetMoons(word)) }
+  ) {
+    this.selectionService.selectedPlanetAround$.subscribe(word => this.updateSelectedPlanetMoons(word))
+  }
 
   public sideListSubject = new BehaviorSubject<any[]>([]);
   sideList$: Observable<any[]> = this.sideListSubject.asObservable();
@@ -37,6 +36,7 @@ export class SideBarListService {
   search(search: string) {
     const list: any[] = [];
     this.searchWordSubject.next(search)
+
     if (search) {
       console.log(search)
       for (let body of this.bodiesService.data) {
@@ -52,7 +52,6 @@ export class SideBarListService {
       }
     }
     this.sideListSubject.next(list);
-    /* this.selectionService.selectedPlanetAroundSubject.next(search) */
   }
 }
 

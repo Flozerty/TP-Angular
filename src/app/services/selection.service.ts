@@ -6,7 +6,6 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class SelectionService {
-
   constructor(private bodiesService: BodiesService, private http: HttpClient) { }
 
   destroy$ = new Subject<void>()
@@ -20,20 +19,9 @@ export class SelectionService {
   public selectedBodySubject = new BehaviorSubject<any[]>([]);
   selectedBody$: Observable<any[]> = this.selectedBodySubject.asObservable();
 
-  updateSelectedType(type: string) {
-    this.selectedTypeSubject.next(type)
-  }
   getBodiesBySelectedType() {
     let bodiesSelected: any[] = this.bodiesService.data.filter(body => body.bodyType === this.selectedTypeSubject.value);
     return bodiesSelected;
-  }
-
-  updateSelectedPlanetAround(body: string) {
-    this.selectedPlanetAroundSubject.next(body);
-  }
-
-  updateSelectedBody(body: any) {
-    this.selectedBodySubject.next(body)
   }
 
   getBodyById(bodyId: string) {
@@ -42,10 +30,5 @@ export class SelectionService {
 
   findBodyById(bodyId: string) {
     return this.http.get<any>(`https://api.le-systeme-solaire.net/rest/bodies/${bodyId}`);
-  }
-
-
-  resetMethod() {
-
   }
 }

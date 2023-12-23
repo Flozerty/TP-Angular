@@ -1,6 +1,7 @@
 <div id="now">
     <div id="date">{{time | date: 'dd MMMM YYYY'}}</div>
     <div id="time">
-        {{time | date:'HH'}}{{this.seg?":":' '}}{{time | date:'mm'}}{{this.seg?" ":':'}}{{time | date:'ss'}}
+        {{time | date:'HH'}}<span [ngClass]="{'active': seg, 'disabled': !seg}">:</span>{{time | date:'mm'}}<span
+            [ngClass]="{'active': !seg, 'disabled': seg}">:</span>{{time | date:'ss'}}
     </div>
 </div>

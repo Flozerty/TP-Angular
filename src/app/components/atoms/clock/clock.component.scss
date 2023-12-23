@@ -6,15 +6,21 @@
 
     #date {
         color: rgba(255, 255, 255, 0.5);
-
     }
 
     #time {
-
         color: red;
         font-size: 2em;
         background-color: rgb(30, 30, 30);
         padding: 10px 20px;
         border-radius: 50px;
+    }
+
+    .active {
+        color: red;
+    }
+
+    .disabled {
+        color: rgb(30, 30, 30);
     }
 }
